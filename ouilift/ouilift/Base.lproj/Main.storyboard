@@ -61,6 +61,9 @@
                                                 <state key="normal" title="Je ne suis pas membre" backgroundImage="buttonYellow2">
                                                     <color key="titleColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="nZB-zo-0jV" kind="show" id="195-lc-1vp"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -92,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Af7-lR-eX2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1631" y="-48"/>
+            <point key="canvasLocation" x="-3784" y="-100"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1qT-n8-NpK">
@@ -116,7 +119,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fU-Y7-u7l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-793" y="-48"/>
+            <point key="canvasLocation" x="-2881" y="-85"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="98i-SF-MtY">
+            <objects>
+                <viewController id="nZB-zo-0jV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qi4-VR-OtD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Research" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="puo-HN-y4k">
+                                <rect key="frame" x="171" y="403" width="72" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="bSP-cN-Kbw"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Um9-kb-GyA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3382.608695652174" y="-773.4375"/>
         </scene>
     </scenes>
     <resources>
