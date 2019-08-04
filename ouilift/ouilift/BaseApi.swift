@@ -9,14 +9,17 @@
 import Foundation
 
 class BaseAPI<T: Codable> {
-    var baseEndpoint = "http://api-test.toncopilote.com/"
+    let baseEndpoint = "http://autoexpress.gabways.com/api/"
+    var endpoint: String
     
-    func get (endpoint: String) -> [T] {
-        var getTs: [T] = []
-        let endpoint = baseEndpoint+endpoint
-        guard let url = URL(string: endpoint) else {
+    init(endpoint: String) {
+        self.endpoint = endpoint
+    }
+    
+    func get (completion: @escaping ([T]) -> Void) {
+        guard let url = URL(string: baseEndpoint+endpoint) else {
             print("Error: cannot create URL")
-            return []
+            return
         }
         
         let urlRequest = URLRequest(url: url)
@@ -34,8 +37,8 @@ class BaseAPI<T: Codable> {
                     let responses = json["response"] as? [Any] {
                     let jsonData = try? JSONSerialization.data(withJSONObject:responses)
                     if let jsonData = jsonData {
-                        if let totos: [T] = try? JSONDecoder().decode([T].self, from: jsonData) {
-                            getTs = totos
+                        if let TResponses: [T] = try? JSONDecoder().decode([T].self, from: jsonData) {
+                            completion(TResponses)
                         }
                     }
                 }
@@ -44,6 +47,42 @@ class BaseAPI<T: Codable> {
             }
         }
         task.resume()
-        return getTs
     }
+    
+    func post (TRequest: T, completion: @escaping (Int) -> Void) {
+        guard let url = URL(string: baseEndpoint+endpoint) else {
+            print("Error: cannot create URL")
+            return
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        
+        let jsonData = try? JSONEncoder().encode(TRequest)
+        urlRequest.httpBody = jsonData
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: urlRequest) { (data, response, error) in
+            guard error == nil else {
+                print("error calling POST")
+                print(error!)
+                return
+            }
+            
+            do {
+                if let data = data,
+                    let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
+                {
+                    if let TStatus = json["status"] as? Int {
+                        completion(TStatus)
+                    }
+                }
+                
+            } catch {
+                print("Error deserializing JSON: \(error)")
+            }
+        }
+        task.resume()
+    }
+    
 }
