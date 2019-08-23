@@ -21,6 +21,11 @@ class RoutesTableViewCell: UITableViewCell {
 
 class RoutesTableViewController: UITableViewController {
     
+    struct DateSection: Codable {
+        var internalRouteDate: String
+        var internalRoutes : [InternalRoute] = []
+    }
+    
     struct InternalRoute: Codable {
         var PK: String
         var routeDate: String
@@ -50,6 +55,7 @@ class RoutesTableViewController: UITableViewController {
     }
     
     var internalRoutes : [InternalRoute] = []
+    var internaleRoutesByDate: [DateSection] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,36 +67,50 @@ class RoutesTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         let internalRouteApi = BaseAPI<InternalRoute>(endpoint: "internal-routes.php")
-        internalRouteApi.get(completion: {(result) in self.internalRoutes = result; DispatchQueue.main.async {
+        internalRouteApi.get(completion: {(result) in
+            self.internalRoutes = result;
+            
+            let groups = Dictionary(grouping: self.internalRoutes) { (internalRoute) in
+                return internalRoute.routeDate
+            }
+            self.internaleRoutesByDate = groups.map { (key, values) in
+                return DateSection(internalRouteDate: key, internalRoutes: values)
+            }
+            
+            DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         })
+        
     }
 
     // MARK: - Table view data source
 
-    /*override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }*/
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        //return the number of sections
+        return internaleRoutesByDate.count
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return internalRoutes.count
+        //return the number of rows
+        let section = self.internaleRoutesByDate[section]
+        return section.internalRoutes.count
     }
     
-    /*override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Section \(section)"
-    } */
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let section = self.internaleRoutesByDate[section]
+        return section.internalRouteDate
+    }
 
     /**/
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RouteCell", for: indexPath) as! RoutesTableViewCell
-        cell.routeFrom?.text = internalRoutes[indexPath.row].fStation
-        cell.routeTo?.text = internalRoutes[indexPath.row].tStation
-        cell.routeHour?.text = internalRoutes[indexPath.row].hour
-        cell.routePlace?.text = internalRoutes[indexPath.row].remainingPlace
-        //cell.textLabel?.text = internalRoutes[indexPath.row].fStation //"Row \(indexPath.row)"
+        let section = self.internaleRoutesByDate[indexPath.section]
+        cell.routeFrom?.text = section.internalRoutes[indexPath.row].fStation
+        cell.routeTo?.text = section.internalRoutes[indexPath.row].tStation
+        cell.routeHour?.text = section.internalRoutes[indexPath.row].hour
+        cell.routePlace?.text = section.internalRoutes[indexPath.row].remainingPlace
+        
         return cell
     }
     /**/
