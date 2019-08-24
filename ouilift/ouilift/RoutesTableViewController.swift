@@ -17,6 +17,7 @@ class RoutesTableViewCell: UITableViewCell {
     @IBOutlet weak var routeHour: UILabel!
     
     @IBOutlet weak var routePlace: UILabel!
+    @IBOutlet weak var routePrice: UILabel!
 }
 
 class RoutesTableViewController: UITableViewController {
@@ -24,6 +25,14 @@ class RoutesTableViewController: UITableViewController {
     struct DateSection: Codable {
         var internalRouteDate: String
         var internalRoutes : [InternalRoute] = []
+        
+        static func < (lhs: DateSection, rhs: DateSection) -> Bool {
+            return lhs.internalRouteDate < rhs.internalRouteDate
+        }
+        
+        static func == (lhs: DateSection, rhs: DateSection) -> Bool {
+            return lhs.internalRouteDate == rhs.internalRouteDate
+        }
     }
     
     struct InternalRoute: Codable {
@@ -73,9 +82,11 @@ class RoutesTableViewController: UITableViewController {
             let groups = Dictionary(grouping: self.internalRoutes) { (internalRoute) in
                 return internalRoute.routeDate
             }
-            self.internaleRoutesByDate = groups.map { (key, values) in
+            self.internaleRoutesByDate = groups.map(DateSection.init(internalRouteDate:internalRoutes:))//.sorted()
+            //self.internaleRoutesByDate.sorted()
+            /*self.internaleRoutesByDate = groups.map { (key, values) in
                 return DateSection(internalRouteDate: key, internalRoutes: values)
-            }
+            }*/
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -106,10 +117,11 @@ class RoutesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RouteCell", for: indexPath) as! RoutesTableViewCell
         let section = self.internaleRoutesByDate[indexPath.section]
-        cell.routeFrom?.text = section.internalRoutes[indexPath.row].fStation
-        cell.routeTo?.text = section.internalRoutes[indexPath.row].tStation
+        cell.routeFrom?.text = "De: \(section.internalRoutes[indexPath.row].fStation)"
+        cell.routeTo?.text = "À: \(section.internalRoutes[indexPath.row].tStation)"
         cell.routeHour?.text = section.internalRoutes[indexPath.row].hour
-        cell.routePlace?.text = section.internalRoutes[indexPath.row].remainingPlace
+        cell.routePlace?.text = "\(section.internalRoutes[indexPath.row].remainingPlace) Place(s)"
+        cell.routePrice?.text = "\(section.internalRoutes[indexPath.row].routePrice) F CFA"
         
         return cell
     }
