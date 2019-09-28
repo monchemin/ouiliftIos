@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E0D6E77233FAE540020964A /* FieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0D6E76233FAE540020964A /* FieldValidator.swift */; };
 		8E63A1A122ECB40200D8BBFF /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E63A1A022ECB40200D8BBFF /* BaseApi.swift */; };
 		8E6CCD3A22FF345600347AEF /* RoutesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6CCD3922FF345600347AEF /* RoutesTableViewController.swift */; };
+		8E6DFC58233C332100A6BB8F /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6DFC57233C332100A6BB8F /* CreateAccountViewController.swift */; };
 		8EDA7A4623270353000E5B66 /* SearchRoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA7A4523270353000E5B66 /* SearchRoutesViewController.swift */; };
 		8EDA7A48232D6735000E5B66 /* RouteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA7A47232D6735000E5B66 /* RouteDetailViewController.swift */; };
 		8EE8313E22DA55F800F4BC72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE8313D22DA55F800F4BC72 /* AppDelegate.swift */; };
@@ -38,8 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E0D6E76233FAE540020964A /* FieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldValidator.swift; sourceTree = "<group>"; };
 		8E63A1A022ECB40200D8BBFF /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
 		8E6CCD3922FF345600347AEF /* RoutesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesTableViewController.swift; sourceTree = "<group>"; };
+		8E6DFC57233C332100A6BB8F /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		8EDA7A4523270353000E5B66 /* SearchRoutesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRoutesViewController.swift; sourceTree = "<group>"; };
 		8EDA7A47232D6735000E5B66 /* RouteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailViewController.swift; sourceTree = "<group>"; };
 		8EE8313A22DA55F800F4BC72 /* ouilift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ouilift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,12 +112,14 @@
 				8EE8313D22DA55F800F4BC72 /* AppDelegate.swift */,
 				8EE8313F22DA55F800F4BC72 /* ViewController.swift */,
 				8EE8314122DA55F800F4BC72 /* Main.storyboard */,
+				8E6DFC57233C332100A6BB8F /* CreateAccountViewController.swift */,
 				8EDA7A4523270353000E5B66 /* SearchRoutesViewController.swift */,
 				8E6CCD3922FF345600347AEF /* RoutesTableViewController.swift */,
 				8EE8314422DA55FB00F4BC72 /* Assets.xcassets */,
 				8EE8314622DA55FB00F4BC72 /* LaunchScreen.storyboard */,
 				8EE8314922DA55FB00F4BC72 /* Info.plist */,
 				8E63A1A022ECB40200D8BBFF /* BaseApi.swift */,
+				8E0D6E76233FAE540020964A /* FieldValidator.swift */,
 				8EDA7A47232D6735000E5B66 /* RouteDetailViewController.swift */,
 			);
 			path = ouilift;
@@ -268,6 +274,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E6DFC58233C332100A6BB8F /* CreateAccountViewController.swift in Sources */,
+				8E0D6E77233FAE540020964A /* FieldValidator.swift in Sources */,
 				8EE8314022DA55F800F4BC72 /* ViewController.swift in Sources */,
 				8EDA7A48232D6735000E5B66 /* RouteDetailViewController.swift in Sources */,
 				8E63A1A122ECB40200D8BBFF /* BaseApi.swift in Sources */,

@@ -11,3 +11,9 @@ import UIKit
 class ViewController: UIViewController {
 }
 
+extension UITextField {
+    func validatedText (_ fieldType: FieldValidator.ValidatorType) throws -> String {
+        let fieldValidator = FieldValidator()
+        return try fieldValidator.isValid(fieldType, self.text ?? "")
+    }
+}
