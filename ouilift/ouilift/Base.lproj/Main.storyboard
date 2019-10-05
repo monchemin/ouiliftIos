@@ -215,7 +215,7 @@
                                                     <color key="titleColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="kYC-Yv-hVU" kind="show" animates="NO" id="sst-fc-kDA"/>
+                                                    <segue destination="kYC-Yv-hVU" kind="show" identifier="segueToCreateAccount" animates="NO" id="sst-fc-kDA"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre de place(s) à reserver" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Uli-vl-N5d">
@@ -250,6 +250,7 @@
                         <outlet property="routeDetailFrom" destination="HRx-NI-ukg" id="Pof-am-K5O"/>
                         <outlet property="routeDetailFromDetails" destination="kOm-Ym-ftW" id="Z7Z-TN-5b2"/>
                         <outlet property="routeDetailPlace" destination="UAZ-zG-ast" id="Gwb-k3-2D8"/>
+                        <outlet property="routeDetailPlaceToReserve" destination="Uli-vl-N5d" id="rmP-az-TdC"/>
                         <outlet property="routeDetailPrice" destination="2sW-Yl-Pud" id="QiS-uR-maP"/>
                         <outlet property="routeDetailTo" destination="8jB-th-6ak" id="QdQ-40-gcS"/>
                         <outlet property="routeDetailToDetails" destination="Wd9-CC-7Gv" id="YyM-1X-nQ9"/>

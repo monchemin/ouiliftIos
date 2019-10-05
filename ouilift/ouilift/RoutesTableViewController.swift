@@ -143,6 +143,7 @@ class RoutesTableViewController: UITableViewController {
             routeDetailVC.detailTStation = section.internalRoutes[selectedIndex!].tStation
             routeDetailVC.detailFStationDetails = section.internalRoutes[selectedIndex!].fStationDetail
             routeDetailVC.detailTStationDetails = section.internalRoutes[selectedIndex!].tStationDetail
+            routeDetailVC.routeId = section.internalRoutes[selectedIndex!].PK
         }
     }
     /**/

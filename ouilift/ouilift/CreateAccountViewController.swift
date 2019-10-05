@@ -10,6 +10,9 @@ import UIKit
 
 class CreateAccountViewController: UIViewController {
     
+    var routeId: String?
+    var place: String?
+    var price: String?
     
     @IBOutlet weak var customerFirstName: UITextField!
     
@@ -38,6 +41,19 @@ class CreateAccountViewController: UIViewController {
             self.customerPassword = customerPassword
         }
     }
+    
+    struct Reservation: Codable {
+        // var reservationDate: String
+        var FK_Route: String
+        var FK_Customer: String
+        var place: String
+        
+        init (_ FK_Route: String, _ FK_Customer: String, _ place: String) {
+            self.FK_Route = FK_Route
+            self.FK_Customer = FK_Customer
+            self.place = place
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +63,7 @@ class CreateAccountViewController: UIViewController {
     
 
     @IBAction func createCustomer(_ sender: Any) {
+        
         if (customerPwd.text == customerPwdConfirm.text) {
             var validatedEmail: String
             do {
@@ -54,16 +71,37 @@ class CreateAccountViewController: UIViewController {
                 
                 let customerAccout = Customer(customerFirstName.text ?? "", customerLastName.text ?? "", customerPhone.text ?? "", validatedEmail, customerPwd.text ?? "")
                 let customerApi = BaseAPI<Customer>(endpoint: "customer.php")
-                customerApi.post(TRequest: customerAccout) { (status) in
-                    // faire le call pour enregister la reservation
-                    if (status == 200) {
-                        print("insertion OK")
+                customerApi.postLastIndex(TRequest: customerAccout, completion: { (lastIndex) in
+                    if (lastIndex != "") {
+                        // faire le call pour enregister la reservation
+                        let reservationApi = BaseAPI<Reservation>(endpoint: "reservations.php")
+                        let reservation = Reservation(self.routeId!, lastIndex, self.place!)
+                        reservationApi.post(TRequest: reservation, completion: { (status) in
+                            if (status == 200) {
+                                // toDo modifier la methode showAlert pour lui passer une fonction callback qui fera l'action suivante
+                                DispatchQueue.main.async {
+                                    self.showAlert(message: "Confirmation de votre enregistrement")
+                                }
+                            } else {
+                                DispatchQueue.main.async {
+                                    self.showAlert(message: "Une erreur est survenue. Veuillez réessayer")
+                                }
+                            }
+                        })
+                    } else {
+                        DispatchQueue.main.async {
+                            self.showAlert(message: "Une erreur est survenue. Veuillez réessayer")
+                        }
                     }
-                }
+                    
+                })
                 
             } catch(let error) {
                 showAlert(message: (error as! FieldValidator.ValidationError).message)
             }
+        } else {
+            showAlert(message: "Erreur confirmation mot de passe")
+            // customerPwdConfirm.becomeFirstResponder() // toDo focus dans les fields erreur
         }
     }
     

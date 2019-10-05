@@ -10,6 +10,7 @@ import UIKit
 
 class RouteDetailViewController: UIViewController {
     
+    var routeId: String?
     var detailDate: String?
     var detailPrice: String?
     var detailRemainingPlace: String?
@@ -34,6 +35,8 @@ class RouteDetailViewController: UIViewController {
     
     @IBOutlet weak var routeDetailToDetails: UILabel!
     
+    @IBOutlet weak var routeDetailPlaceToReserve: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,15 +49,13 @@ class RouteDetailViewController: UIViewController {
         routeDetailPlace.text = "\(detailRemainingPlace ?? defaulValue) Place(s)"
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if (segue.identifier == "segueToCreateAccount") {
+            let createAccountVC = segue.destination as! CreateAccountViewController
+            createAccountVC.routeId = routeId
+            createAccountVC.place = routeDetailPlaceToReserve.text
+            createAccountVC.price = detailPrice
+        }
     }
-    */
 
 }
