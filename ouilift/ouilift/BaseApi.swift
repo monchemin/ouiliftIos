@@ -9,7 +9,7 @@
 import Foundation
 
 class BaseAPI<T: Codable> {
-    let baseEndpoint = "http://autoexpress.gabways.com/api/"
+    let baseEndpoint = "http://api-test.toncopilote.com/"
     var endpoint: String
     
     init(endpoint: String) {
