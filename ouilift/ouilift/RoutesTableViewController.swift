@@ -18,6 +18,7 @@ class RoutesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var routePlace: UILabel!
     @IBOutlet weak var routePrice: UILabel!
+
 }
 
 class RoutesTableViewController: UITableViewController {
@@ -93,6 +94,7 @@ class RoutesTableViewController: UITableViewController {
             }
         })
         
+        
     }
 
     // MARK: - Table view data source
@@ -121,9 +123,28 @@ class RoutesTableViewController: UITableViewController {
         cell.routeTo?.text = "À: \(section.internalRoutes[indexPath.row].tStation)"
         cell.routeHour?.text = section.internalRoutes[indexPath.row].hour
         cell.routePlace?.text = "\(section.internalRoutes[indexPath.row].remainingPlace) Place(s)"
-        cell.routePrice?.text = "\(section.internalRoutes[indexPath.row].routePrice) F CFA"
+        cell.routePrice?.text = "\(section.internalRoutes[indexPath.row].routePrice)"
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "segueToRouteDetail") {
+            let routeDetailVC = segue.destination as! RouteDetailViewController
+            
+            let selectedSectionIndex = tableView.indexPathForSelectedRow?.section
+            let selectedIndex = tableView.indexPathForSelectedRow?.row
+            let section = self.internaleRoutesByDate[selectedSectionIndex!]
+            routeDetailVC.detailDate = section.internalRoutes[selectedIndex!].routeDate
+            routeDetailVC.detailFStation = section.internalRoutes[selectedIndex!].fStation
+            routeDetailVC.detailHour = section.internalRoutes[selectedIndex!].hour
+            routeDetailVC.detailPrice = section.internalRoutes[selectedIndex!].routePrice
+            routeDetailVC.detailRemainingPlace = section.internalRoutes[selectedIndex!].remainingPlace
+            routeDetailVC.detailTStation = section.internalRoutes[selectedIndex!].tStation
+            routeDetailVC.detailFStationDetails = section.internalRoutes[selectedIndex!].fStationDetail
+            routeDetailVC.detailTStationDetails = section.internalRoutes[selectedIndex!].tStationDetail
+            routeDetailVC.routeId = section.internalRoutes[selectedIndex!].PK
+        }
     }
     /**/
 
@@ -159,16 +180,6 @@ class RoutesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
     */
 
