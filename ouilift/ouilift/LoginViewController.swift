@@ -17,10 +17,13 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var userId: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    override open var shouldAutorotate: Bool {
+        return false
+    }
+    
+    // Specify the orientation.
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
     }
     
     struct CustomerAccess: Codable {
@@ -31,6 +34,12 @@ class LoginViewController: UIViewController {
             self.login = login
             self.password = password
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
     }
     
     @IBAction func connect(_ sender: Any) {
@@ -46,9 +55,9 @@ class LoginViewController: UIViewController {
                 validatedEmail = try compte.validatedText(FieldValidator.ValidatorType.email)
                 let customerAccess = CustomerAccess(validatedEmail, pwd.text!)
                 let loginApi = BaseAPI<CustomerAccess>(endpoint: "login.php")
-                loginApi.postIsLog(TRequest: customerAccess, completion: { (isLog) in
+                loginApi.postIsLog(TRequest: customerAccess, completion: { (isLog, customer) in
                     if (isLog) {
-                        // toDo : mettre lóbject de connexion sous AppDelegate
+                        OuiLiftTabBarController.connectedCustomer = customer
                         DispatchQueue.main.async {
                             self.performSegue(withIdentifier: "segueToNavigationController", sender: nil)
                         }
