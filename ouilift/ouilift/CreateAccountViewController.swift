@@ -27,18 +27,18 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var customerPwdConfirm: UITextField!
     
     struct Customer: Codable {
-        var customerFistName: String
-        var customerLastName: String
-        var customerPhoneNumber: String
-        var customerEMailAddress: String
-        var customerPassword: String
+        var firstName: String
+        var lastName: String
+        var phoneNumber: String
+        var eMail: String
+        var password: String
         
         init (_ customerFistName: String, _ customerLastName: String, _ customerPhoneNumber: String, _ customerEMailAddress: String, _ customerPassword: String) {
-            self.customerFistName = customerFistName
-            self.customerLastName = customerLastName
-            self.customerPhoneNumber = customerPhoneNumber
-            self.customerEMailAddress = customerEMailAddress
-            self.customerPassword = customerPassword
+            self.firstName = customerFistName
+            self.lastName = customerLastName
+            self.phoneNumber = customerPhoneNumber
+            self.eMail = customerEMailAddress
+            self.password = customerPassword
         }
     }
     
@@ -53,6 +53,15 @@ class CreateAccountViewController: UIViewController {
             self.FK_Customer = FK_Customer
             self.place = place
         }
+    }
+    
+    override open var shouldAutorotate: Bool {
+        return false
+    }
+    
+    // Specify the orientation.
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
     }
 
     override func viewDidLoad() {
@@ -78,7 +87,7 @@ class CreateAccountViewController: UIViewController {
                         let reservation = Reservation(self.routeId!, lastIndex, self.place!)
                         reservationApi.post(TRequest: reservation, completion: { (status) in
                             if (status == 200) {
-                                // toDo modifier la methode showAlert pour lui passer une fonction callback qui fera l'action suivante
+                                
                                 DispatchQueue.main.async {
                                     self.showAlert(message: "Confirmation de votre enregistrement")
                                 }

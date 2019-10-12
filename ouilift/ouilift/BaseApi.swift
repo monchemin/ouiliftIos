@@ -121,7 +121,7 @@ class BaseAPI<T: Codable> {
         task.resume()
     }
     
-    func postIsLog (TRequest: T, completion: @escaping (Bool) -> Void) {
+    func postIsLog (TRequest: T, completion: @escaping (Bool, OuiLiftTabBarController.Customer) -> Void) {
         guard let url = URL(string: baseEndpoint+endpoint) else {
             print("Error: cannot create URL")
             return
@@ -143,10 +143,19 @@ class BaseAPI<T: Codable> {
             
             do {
                 if let data = data,
-                    let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
-                {
-                    if let isLog = json["isLog"] as? Bool {
-                        completion(isLog)
+                    let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+                    let isLog = json["isLog"] as? Bool { //let responses = json["response"] as? [Any] {
+                    if (isLog) {
+                        let responses = json["response"] as? [Any]
+                        let jsonData = try? JSONSerialization.data(withJSONObject:responses!)
+                        if let jsonData = jsonData {
+                            if let TResponses: [OuiLiftTabBarController.Customer] = try? JSONDecoder().decode([OuiLiftTabBarController.Customer].self, from: jsonData) {
+                                completion(true, TResponses[0])
+                            }
+                        }
+                    } else {
+                        completion(false, OuiLiftTabBarController.Customer("", "", "", "", "", "", "", ""))
+                        
                     }
                 }
                 

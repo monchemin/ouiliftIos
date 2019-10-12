@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8E0D6E77233FAE540020964A /* FieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0D6E76233FAE540020964A /* FieldValidator.swift */; };
 		8E0D6E79234961720020964A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0D6E78234961720020964A /* LoginViewController.swift */; };
+		8E1CED1523522EDC0056A5EF /* OuiLiftTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1CED1423522EDC0056A5EF /* OuiLiftTabBarController.swift */; };
 		8E63A1A122ECB40200D8BBFF /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E63A1A022ECB40200D8BBFF /* BaseApi.swift */; };
 		8E6CCD3A22FF345600347AEF /* RoutesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6CCD3922FF345600347AEF /* RoutesTableViewController.swift */; };
 		8E6DFC58233C332100A6BB8F /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6DFC57233C332100A6BB8F /* CreateAccountViewController.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		8E0D6E76233FAE540020964A /* FieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldValidator.swift; sourceTree = "<group>"; };
 		8E0D6E78234961720020964A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8E1CED1423522EDC0056A5EF /* OuiLiftTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuiLiftTabBarController.swift; sourceTree = "<group>"; };
 		8E63A1A022ECB40200D8BBFF /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
 		8E6CCD3922FF345600347AEF /* RoutesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesTableViewController.swift; sourceTree = "<group>"; };
 		8E6DFC57233C332100A6BB8F /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				8E63A1A022ECB40200D8BBFF /* BaseApi.swift */,
 				8E0D6E76233FAE540020964A /* FieldValidator.swift */,
 				8EDA7A47232D6735000E5B66 /* RouteDetailViewController.swift */,
+				8E1CED1423522EDC0056A5EF /* OuiLiftTabBarController.swift */,
 			);
 			path = ouilift;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 			files = (
 				8E0D6E79234961720020964A /* LoginViewController.swift in Sources */,
 				8E6DFC58233C332100A6BB8F /* CreateAccountViewController.swift in Sources */,
+				8E1CED1523522EDC0056A5EF /* OuiLiftTabBarController.swift in Sources */,
 				8E0D6E77233FAE540020964A /* FieldValidator.swift in Sources */,
 				8EE8314022DA55F800F4BC72 /* ViewController.swift in Sources */,
 				8EDA7A48232D6735000E5B66 /* RouteDetailViewController.swift in Sources */,

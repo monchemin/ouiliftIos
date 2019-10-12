@@ -223,7 +223,7 @@
                                                     <color key="titleColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="kYC-Yv-hVU" kind="show" identifier="segueToCreateAccount" animates="NO" id="sst-fc-kDA"/>
+                                                    <action selector="reservationAction:" destination="pvg-19-7ZH" eventType="touchUpInside" id="Gzv-gs-zqS"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre de place(s) à reserver" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Uli-vl-N5d">
@@ -265,6 +265,7 @@
                         <outlet property="routeDetailPrice" destination="2sW-Yl-Pud" id="QiS-uR-maP"/>
                         <outlet property="routeDetailTo" destination="8jB-th-6ak" id="QdQ-40-gcS"/>
                         <outlet property="routeDetailToDetails" destination="Wd9-CC-7Gv" id="YyM-1X-nQ9"/>
+                        <segue destination="kYC-Yv-hVU" kind="show" identifier="segueToCreateAccount" animates="NO" id="L4K-qZ-6vh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x1t-xe-foj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -781,12 +782,13 @@
             </objects>
             <point key="canvasLocation" x="-5283.75" y="-476.40845070422534"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Oui Lift Tab Bar Controller-->
         <scene sceneID="qmA-DD-Seg">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="s38-Io-d4u" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="s38-Io-d4u" customClass="OuiLiftTabBarController" customModule="ouilift" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KlW-9Q-t9T">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

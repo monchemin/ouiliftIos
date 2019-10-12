@@ -37,6 +37,26 @@ class RouteDetailViewController: UIViewController {
     
     @IBOutlet weak var routeDetailPlaceToReserve: UITextField!
     
+    override open var shouldAutorotate: Bool {
+        return false
+    }
+    
+    // Specify the orientation.
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    
+    @IBAction func reservationAction(_ sender: Any) {
+        if (OuiLiftTabBarController.connectedCustomer != nil) {
+            
+        } else {
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "segueToCreateAccount", sender: nil)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
