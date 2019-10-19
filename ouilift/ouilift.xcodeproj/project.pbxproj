@@ -22,6 +22,8 @@
 		8EE8314822DA55FB00F4BC72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EE8314622DA55FB00F4BC72 /* LaunchScreen.storyboard */; };
 		8EE8315322DA55FC00F4BC72 /* ouiliftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE8315222DA55FC00F4BC72 /* ouiliftTests.swift */; };
 		8EE8315E22DA55FC00F4BC72 /* ouiliftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE8315D22DA55FC00F4BC72 /* ouiliftUITests.swift */; };
+		8EEC0DE2235BBF410053E897 /* CustomerRouteListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEC0DE1235BBF410053E897 /* CustomerRouteListTableViewController.swift */; };
+		8EEC0DE4235BD0910053E897 /* ReservationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEC0DE3235BD0900053E897 /* ReservationDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		8EE8315922DA55FC00F4BC72 /* ouiliftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ouiliftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EE8315D22DA55FC00F4BC72 /* ouiliftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ouiliftUITests.swift; sourceTree = "<group>"; };
 		8EE8315F22DA55FC00F4BC72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8EEC0DE1235BBF410053E897 /* CustomerRouteListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerRouteListTableViewController.swift; sourceTree = "<group>"; };
+		8EEC0DE3235BD0900053E897 /* ReservationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,7 @@
 		8EE8313C22DA55F800F4BC72 /* ouilift */ = {
 			isa = PBXGroup;
 			children = (
+				8EEC0DE1235BBF410053E897 /* CustomerRouteListTableViewController.swift */,
 				8EE8313D22DA55F800F4BC72 /* AppDelegate.swift */,
 				8EE8313F22DA55F800F4BC72 /* ViewController.swift */,
 				8EE8314122DA55F800F4BC72 /* Main.storyboard */,
@@ -127,6 +132,7 @@
 				8E0D6E76233FAE540020964A /* FieldValidator.swift */,
 				8EDA7A47232D6735000E5B66 /* RouteDetailViewController.swift */,
 				8E1CED1423522EDC0056A5EF /* OuiLiftTabBarController.swift */,
+				8EEC0DE3235BD0900053E897 /* ReservationDetailViewController.swift */,
 			);
 			path = ouilift;
 			sourceTree = "<group>";
@@ -284,9 +290,11 @@
 				8E6DFC58233C332100A6BB8F /* CreateAccountViewController.swift in Sources */,
 				8E1CED1523522EDC0056A5EF /* OuiLiftTabBarController.swift in Sources */,
 				8E0D6E77233FAE540020964A /* FieldValidator.swift in Sources */,
+				8EEC0DE4235BD0910053E897 /* ReservationDetailViewController.swift in Sources */,
 				8EE8314022DA55F800F4BC72 /* ViewController.swift in Sources */,
 				8EDA7A48232D6735000E5B66 /* RouteDetailViewController.swift in Sources */,
 				8E63A1A122ECB40200D8BBFF /* BaseApi.swift in Sources */,
+				8EEC0DE2235BBF410053E897 /* CustomerRouteListTableViewController.swift in Sources */,
 				8EDA7A4623270353000E5B66 /* SearchRoutesViewController.swift in Sources */,
 				8EE8313E22DA55F800F4BC72 /* AppDelegate.swift in Sources */,
 				8E6CCD3A22FF345600347AEF /* RoutesTableViewController.swift in Sources */,
