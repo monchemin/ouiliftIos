@@ -33,6 +33,16 @@ class OuiLiftTabBarController: UITabBarController {
     }
     
     static var connectedCustomer: Customer?
+    
+    static var fromStationId: String?
+    
+    static var formStationName: String?
+    
+    static var toStationId: String?
+    
+    static var toStationName: String?
+    
+    static var stationDate: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()

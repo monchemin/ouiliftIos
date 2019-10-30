@@ -24,6 +24,8 @@
 		8EE8315E22DA55FC00F4BC72 /* ouiliftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE8315D22DA55FC00F4BC72 /* ouiliftUITests.swift */; };
 		8EEC0DE2235BBF410053E897 /* CustomerRouteListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEC0DE1235BBF410053E897 /* CustomerRouteListTableViewController.swift */; };
 		8EEC0DE4235BD0910053E897 /* ReservationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEC0DE3235BD0900053E897 /* ReservationDetailViewController.swift */; };
+		8EEC0DE82363F06D0053E897 /* SearchStationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEC0DE72363F06D0053E897 /* SearchStationTableViewController.swift */; };
+		8EEC0DEC2364FB550053E897 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEC0DEB2364FB550053E897 /* DatePickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,10 @@
 		8EE8315F22DA55FC00F4BC72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EEC0DE1235BBF410053E897 /* CustomerRouteListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerRouteListTableViewController.swift; sourceTree = "<group>"; };
 		8EEC0DE3235BD0900053E897 /* ReservationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailViewController.swift; sourceTree = "<group>"; };
+		8EEC0DE5235FE5370053E897 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		8EEC0DE6235FE5370053E897 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		8EEC0DE72363F06D0053E897 /* SearchStationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStationTableViewController.swift; sourceTree = "<group>"; };
+		8EEC0DEB2364FB550053E897 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +127,8 @@
 				8EE8313D22DA55F800F4BC72 /* AppDelegate.swift */,
 				8EE8313F22DA55F800F4BC72 /* ViewController.swift */,
 				8EE8314122DA55F800F4BC72 /* Main.storyboard */,
+				8EEC0DEB2364FB550053E897 /* DatePickerViewController.swift */,
+				8EEC0DE72363F06D0053E897 /* SearchStationTableViewController.swift */,
 				8E0D6E78234961720020964A /* LoginViewController.swift */,
 				8E6DFC57233C332100A6BB8F /* CreateAccountViewController.swift */,
 				8EDA7A4523270353000E5B66 /* SearchRoutesViewController.swift */,
@@ -241,6 +249,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 8EE8313122DA55F800F4BC72;
 			productRefGroup = 8EE8313B22DA55F800F4BC72 /* Products */;
@@ -288,6 +297,8 @@
 			files = (
 				8E0D6E79234961720020964A /* LoginViewController.swift in Sources */,
 				8E6DFC58233C332100A6BB8F /* CreateAccountViewController.swift in Sources */,
+				8EEC0DEC2364FB550053E897 /* DatePickerViewController.swift in Sources */,
+				8EEC0DE82363F06D0053E897 /* SearchStationTableViewController.swift in Sources */,
 				8E1CED1523522EDC0056A5EF /* OuiLiftTabBarController.swift in Sources */,
 				8E0D6E77233FAE540020964A /* FieldValidator.swift in Sources */,
 				8EEC0DE4235BD0910053E897 /* ReservationDetailViewController.swift in Sources */,
@@ -337,6 +348,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				8EE8314222DA55F800F4BC72 /* Base */,
+				8EEC0DE5235FE5370053E897 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -345,6 +357,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				8EE8314722DA55FB00F4BC72 /* Base */,
+				8EEC0DE6235FE5370053E897 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -356,6 +369,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -417,6 +431,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

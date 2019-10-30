@@ -37,9 +37,10 @@ class RoutesTableViewController: UITableViewController {
     }
     
     struct InternalRoute: Codable {
-        var PK: String
+        var routeId: String
         var routeDate: String
         var routePrice: String
+        var routePlace: String
         var remainingPlace: String
         var hour: String
         var fStation: String
@@ -49,10 +50,11 @@ class RoutesTableViewController: UITableViewController {
         var tStationDetail: String?
         var tZone: String
         
-        init (PK: String, routeDate: String, routePrice: String, remainingPlace: String, hour: String, fStation: String, fStationDetail: String, fZone: String, tStation: String, tStationDetail: String, tZone: String) {
-            self.PK = PK
+        init (routeId: String, routeDate: String, routePrice: String, routePlace: String, remainingPlace: String, hour: String, fStation: String, fStationDetail: String, fZone: String, tStation: String, tStationDetail: String, tZone: String) {
+            self.routeId = routeId
             self.routeDate = routeDate
             self.routePrice = routePrice
+            self.routePlace = routePlace
             self.remainingPlace = remainingPlace
             self.hour = hour
             self.fStation = fStation
@@ -61,6 +63,18 @@ class RoutesTableViewController: UITableViewController {
             self.tStation = tStation
             self.tStationDetail = tStationDetail
             self.tZone = tZone
+        }
+    }
+    
+    struct InternalRouteFilter: Codable {
+        var fromStation: String
+        var toStation: String
+        var startDate: String
+        
+        init (_ fromStation: String, _ toStation: String, _ startDate: String) {
+            self.fromStation = fromStation
+            self.toStation = toStation
+            self.startDate = startDate
         }
     }
     
@@ -77,7 +91,11 @@ class RoutesTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         let internalRouteApi = BaseAPI<InternalRoute>(endpoint: "internal-routes.php")
-        internalRouteApi.get(completion: {(result) in
+        
+        let filterParam = InternalRouteFilter(OuiLiftTabBarController.fromStationId ?? "", OuiLiftTabBarController.toStationId ?? "", OuiLiftTabBarController.stationDate ?? "")
+        
+        
+        internalRouteApi.post(TRequest: filterParam, completion: {(result) in
             self.internalRoutes = result;
             
             let groups = Dictionary(grouping: self.internalRoutes) { (internalRoute) in
@@ -100,6 +118,13 @@ class RoutesTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
+        if internaleRoutesByDate.count == 0 {
+            // NSLocalizedString("", comment: "")
+            tableView.setEmptyView("Pas de trajet disponible", "Veuillez changer vos filtres")
+        }
+        else {
+            tableView.restore()
+        }
         //return the number of sections
         return internaleRoutesByDate.count
     }
@@ -143,7 +168,7 @@ class RoutesTableViewController: UITableViewController {
             routeDetailVC.detailTStation = section.internalRoutes[selectedIndex!].tStation
             routeDetailVC.detailFStationDetails = section.internalRoutes[selectedIndex!].fStationDetail
             routeDetailVC.detailTStationDetails = section.internalRoutes[selectedIndex!].tStationDetail
-            routeDetailVC.routeId = section.internalRoutes[selectedIndex!].PK
+            routeDetailVC.routeId = section.internalRoutes[selectedIndex!].routeId
         }
     }
     /**/

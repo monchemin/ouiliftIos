@@ -1,0 +1,195 @@
+
+/* Class = "UILabel"; text = "price"; ObjectID = "2sW-Yl-Pud"; */
+"2sW-Yl-Pud.text" = "price";
+
+/* Class = "UITableViewController"; title = "Routes View Controller"; ObjectID = "2u6-bc-tkF"; */
+"2u6-bc-tkF.title" = "Routes View Controller";
+
+/* Class = "UILabel"; text = "Détail de votre trajet"; ObjectID = "3AK-al-V4J"; */
+"3AK-al-V4J.text" = "Détail de votre trajet";
+
+/* Class = "UILabel"; text = "a"; ObjectID = "3HC-mI-FNz"; */
+"3HC-mI-FNz.text" = "a";
+
+/* Class = "UILabel"; text = "Créer votre compte"; ObjectID = "3d3-UP-A3c"; */
+"3d3-UP-A3c.text" = "Créer votre compte";
+
+/* Class = "UITabBarItem"; title = "Mes départs"; ObjectID = "3u9-XV-Yhx"; */
+"3u9-XV-Yhx.title" = "Mes départs";
+
+/* Class = "UIViewController"; title = "My routes view controller"; ObjectID = "41I-Zc-pdj"; */
+"41I-Zc-pdj.title" = "My routes view controller";
+
+/* Class = "UINavigationItem"; title = "Les trajets disponibles"; ObjectID = "4tN-Wv-9fw"; */
+"4tN-Wv-9fw.title" = "Les trajets disponibles";
+
+/* Class = "UITabBarItem"; title = "Mon compte"; ObjectID = "6i1-7y-EDi"; */
+"6i1-7y-EDi.title" = "Mon compte";
+
+/* Class = "UITabBarItem"; title = "Recherche"; ObjectID = "756-1C-hVk"; */
+"756-1C-hVk.title" = "Recherche";
+
+/* Class = "UILabel"; text = "a"; ObjectID = "8jB-th-6ak"; */
+"8jB-th-6ak.text" = "a";
+
+/* Class = "UIViewController"; title = "Home View Controller"; ObjectID = "9Sb-8c-TNN"; */
+"9Sb-8c-TNN.title" = "Home View Controller";
+
+/* Class = "UILabel"; text = "Covoiturage urbain"; ObjectID = "A6B-2d-YaN"; */
+"A6B-2d-YaN.text" = "Covoiturage urbain";
+
+/* Class = "UINavigationItem"; title = "Les trajets disponibles"; ObjectID = "AMX-uM-aW7"; */
+"AMX-uM-aW7.title" = "Les trajets disponibles";
+
+/* Class = "UILabel"; text = "a detail"; ObjectID = "Auu-zb-a6k"; */
+"Auu-zb-a6k.text" = "a detail";
+
+/* Class = "UILabel"; text = "Chercher votre trajet"; ObjectID = "Ayx-DI-65m"; */
+"Ayx-DI-65m.text" = "Chercher votre trajet";
+
+/* Class = "UIButton"; normalTitle = "Resever ma place"; ObjectID = "B5m-Yf-dmc"; */
+"B5m-Yf-dmc.normalTitle" = "Resever ma place";
+
+/* Class = "UILabel"; text = "price"; ObjectID = "Bap-2l-vEq"; */
+"Bap-2l-vEq.text" = "price";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "Co1-6C-cXA"; */
+"Co1-6C-cXA.placeholder" = "Email";
+
+/* Class = "UILabel"; text = "to"; ObjectID = "D63-FB-w3F"; */
+"D63-FB-w3F.text" = "to";
+
+/* Class = "UIButton"; normalTitle = "OK"; ObjectID = "DKO-e6-ZR4"; */
+"DKO-e6-ZR4.normalTitle" = "OK";
+
+/* Class = "UITabBarItem"; title = "Mes réservations"; ObjectID = "EQ9-Ng-ZCG"; */
+"EQ9-Ng-ZCG.title" = "Mes réservations";
+
+/* Class = "UILabel"; text = "de"; ObjectID = "HRx-NI-ukg"; */
+"HRx-NI-ukg.text" = "de";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Hq1-Lt-U3R"; */
+"Hq1-Lt-U3R.text" = "Label";
+
+/* Class = "UITextView"; text = "Covoiturage urbain"; ObjectID = "IHd-XC-BG9"; */
+"IHd-XC-BG9.text" = "Covoiturage urbain";
+
+/* Class = "UIButton"; normalTitle = "OK"; ObjectID = "JJu-K8-tnZ"; */
+"JJu-K8-tnZ.normalTitle" = "OK";
+
+/* Class = "UITextField"; placeholder = "Confirmer mot de passe"; ObjectID = "Jkx-JH-ld2"; */
+"Jkx-JH-ld2.placeholder" = "Confirmer mot de passe";
+
+/* Class = "UITextField"; placeholder = "Telephone"; ObjectID = "NEq-gF-UdO"; */
+"NEq-gF-UdO.placeholder" = "Telephone";
+
+/* Class = "UILabel"; text = "Reserver votre trajet"; ObjectID = "NaT-up-3hT"; */
+"NaT-up-3hT.text" = "Reserver votre trajet";
+
+/* Class = "UITextField"; placeholder = "Nom"; ObjectID = "NnO-B4-a5O"; */
+"NnO-B4-a5O.placeholder" = "Nom";
+
+/* Class = "UITextView"; text = "Mon compte"; ObjectID = "OGd-0R-9gL"; */
+"OGd-0R-9gL.text" = "Mon compte";
+
+/* Class = "UITextField"; placeholder = "Mot de passe"; ObjectID = "QRC-w6-GPJ"; */
+"QRC-w6-GPJ.placeholder" = "Mot de passe";
+
+/* Class = "UIBarButtonItem"; title = "Retour"; ObjectID = "Qck-KU-lj1"; */
+"Qck-KU-lj1.title" = "Retour";
+
+/* Class = "UITextField"; placeholder = "Prenom"; ObjectID = "QpI-6T-OV0"; */
+"QpI-6T-OV0.placeholder" = "Prenom";
+
+/* Class = "UITextView"; text = "Mes routes"; ObjectID = "TNl-qt-G9W"; */
+"TNl-qt-G9W.text" = "Mes routes";
+
+/* Class = "UILabel"; text = "place"; ObjectID = "UAZ-zG-ast"; */
+"UAZ-zG-ast.text" = "place";
+
+/* Class = "UILabel"; text = "de"; ObjectID = "USD-m0-Ca9"; */
+"USD-m0-Ca9.text" = "de";
+
+/* Class = "UITextField"; placeholder = "Nombre de place(s) à reserver"; ObjectID = "USv-TK-2ge"; */
+"USv-TK-2ge.placeholder" = "Nombre de place(s) à reserver";
+
+/* Class = "UITextField"; placeholder = "Nombre de place(s) à reserver"; ObjectID = "Uli-vl-N5d"; */
+"Uli-vl-N5d.placeholder" = "Nombre de place(s) à reserver";
+
+/* Class = "UIButton"; normalTitle = "Je ne suis pas membre"; ObjectID = "VIq-wX-F4S"; */
+"VIq-wX-F4S.normalTitle" = "Je ne suis pas membre";
+
+/* Class = "UILabel"; text = "from"; ObjectID = "VOq-hD-CJT"; */
+"VOq-hD-CJT.text" = "from";
+
+/* Class = "UILabel"; text = "dateHeure"; ObjectID = "W0m-D3-R8h"; */
+"W0m-D3-R8h.text" = "dateHeure";
+
+/* Class = "UILabel"; text = "a detail"; ObjectID = "Wd9-CC-7Gv"; */
+"Wd9-CC-7Gv.text" = "a detail";
+
+/* Class = "UIViewController"; title = "searchRoutes View Controller"; ObjectID = "YCK-Rr-jD6"; */
+"YCK-Rr-jD6.title" = "searchRoutes View Controller";
+
+/* Class = "UIButton"; normalTitle = "Je suis membre"; ObjectID = "YnB-ti-RFu"; */
+"YnB-ti-RFu.normalTitle" = "Je suis membre";
+
+/* Class = "UIViewController"; title = "Login View Controller"; ObjectID = "ZgA-Xg-MsV"; */
+"ZgA-Xg-MsV.title" = "Login View Controller";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "a21-0Z-6IM"; */
+"a21-0Z-6IM.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "a5J-rI-hQY"; */
+"a5J-rI-hQY.placeholder" = "Email";
+
+/* Class = "UILabel"; text = "de detail"; ObjectID = "aHM-NG-96k"; */
+"aHM-NG-96k.text" = "de detail";
+
+/* Class = "UILabel"; text = "from"; ObjectID = "b3O-1f-T58"; */
+"b3O-1f-T58.text" = "from";
+
+/* Class = "UILabel"; text = "place"; ObjectID = "bwP-Yv-ebH"; */
+"bwP-Yv-ebH.text" = "place";
+
+/* Class = "UILabel"; text = "price"; ObjectID = "c0Q-wz-Cs2"; */
+"c0Q-wz-Cs2.text" = "price";
+
+/* Class = "UIButton"; normalTitle = "Annuler ma réservation"; ObjectID = "f4p-ao-5rX"; */
+"f4p-ao-5rX.normalTitle" = "Annuler ma réservation";
+
+/* Class = "UILabel"; text = "price"; ObjectID = "jLr-rC-qCk"; */
+"jLr-rC-qCk.text" = "price";
+
+/* Class = "UIBarButtonItem"; title = "Retour"; ObjectID = "jz0-jd-nmV"; */
+"jz0-jd-nmV.title" = "Retour";
+
+/* Class = "UILabel"; text = "de detail"; ObjectID = "kOm-Ym-ftW"; */
+"kOm-Ym-ftW.text" = "de detail";
+
+/* Class = "UILabel"; text = "hour"; ObjectID = "oYh-IB-d7l"; */
+"oYh-IB-d7l.text" = "hour";
+
+/* Class = "UILabel"; text = "place"; ObjectID = "pd3-tQ-FyG"; */
+"pd3-tQ-FyG.text" = "place";
+
+/* Class = "UIBarButtonItem"; title = "Retour"; ObjectID = "tBj-h5-FU8"; */
+"tBj-h5-FU8.title" = "Retour";
+
+/* Class = "UILabel"; text = "hour"; ObjectID = "tZ4-2f-GJA"; */
+"tZ4-2f-GJA.text" = "hour";
+
+/* Class = "UITextField"; placeholder = "Mot de passe"; ObjectID = "ttP-iY-3wF"; */
+"ttP-iY-3wF.placeholder" = "Mot de passe";
+
+/* Class = "UILabel"; text = "to"; ObjectID = "vGI-P5-cns"; */
+"vGI-P5-cns.text" = "to";
+
+/* Class = "UILabel"; text = "dateHeure"; ObjectID = "z1U-sU-gpU"; */
+"z1U-sU-gpU.text" = "dateHeure";
+
+/* Class = "UILabel"; text = "place"; ObjectID = "zM4-9i-GLx"; */
+"zM4-9i-GLx.text" = "place";
+
+/* Class = "UIButton"; normalTitle = "Connexion"; ObjectID = "zvI-Wm-m2z"; */
+"zvI-Wm-m2z.normalTitle" = "Connexion";

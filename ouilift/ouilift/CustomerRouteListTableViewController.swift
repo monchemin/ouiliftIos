@@ -101,10 +101,19 @@ class CustomerRouteListTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
+        if customerReservationsByDate.count == 0 {
+            // NSLocalizedString("", comment: "")
+            tableView.setEmptyView("Vous n'avez aucune réservation", "")
+        }
+        else {
+            tableView.restore()
+        }
+        
         return customerReservationsByDate.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         let section = self.customerReservationsByDate[section]
         return section.customerReservations.count
     }
