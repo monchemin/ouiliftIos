@@ -34,9 +34,9 @@ class CustomerRouteListTableViewController: UITableViewController {
     }
     
     struct CustomerReservation: Codable {
-        var reservation: String
-        var remainingPlace: String
-        var PK: String
+        var reservationId: String
+        var place: String
+        var routeId: String
         var routeDate: String
         var routePrice: String
         var hour: String
@@ -51,13 +51,13 @@ class CustomerRouteListTableViewController: UITableViewController {
         var modelName: String
         var brandName: String
         var colorName: String
-        var firstName: String
-        var lastName: String
+        var driverFirstName: String
+        var driverLastName: String
         
-        init (_ reservation: String, _ remainingPlace: String, _ PK: String, _ routeDate: String, _ routePrice: String, _ hour: String, _ fStation: String, _ fStationDetail: String, _ fZone: String, _ tStation: String, _ tStationDetail: String, _ tZone: String, _ registrationNumber: String, _ year: String, _ modelName: String, _ brandName: String, _ colorName: String, _ firstName: String, _ lastName: String) {
-            self.reservation = reservation
-            self.remainingPlace = remainingPlace
-            self.PK = PK
+        init (_ reservationId: String, _ place: String, _ routeId: String, _ routeDate: String, _ routePrice: String, _ hour: String, _ fStation: String, _ fStationDetail: String, _ fZone: String, _ tStation: String, _ tStationDetail: String, _ tZone: String, _ registrationNumber: String, _ year: String, _ modelName: String, _ brandName: String, _ colorName: String, _ driverFirstName: String, _ driverLastName: String) {
+            self.reservationId = reservationId
+            self.place = place
+            self.routeId = routeId
             self.routeDate = routeDate
             self.routePrice = routePrice
             self.hour = hour
@@ -72,8 +72,8 @@ class CustomerRouteListTableViewController: UITableViewController {
             self.modelName = modelName
             self.brandName = brandName
             self.colorName = colorName
-            self.firstName = firstName
-            self.lastName = lastName
+            self.driverFirstName = driverFirstName
+            self.driverLastName = driverLastName
         }
     }
     
@@ -82,8 +82,9 @@ class CustomerRouteListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let customerRouteListApi = BaseAPI<CustomerReservation>(endpoint: "reservation-list.php/57")
+        
+        let customerId = OuiLiftTabBarController.connectedCustomer?.Id
+        let customerRouteListApi = BaseAPI<CustomerReservation>(endpoint: "reservation-list.php/\(customerId ?? "0")")
         customerRouteListApi.get(completion: {(result) in
             self.customerReservations = result;
             
@@ -102,8 +103,8 @@ class CustomerRouteListTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         if customerReservationsByDate.count == 0 {
-            // NSLocalizedString("", comment: "")
-            tableView.setEmptyView("Vous n'avez aucune réservation", "")
+            let emptyMessage = NSLocalizedString("Vous n'avez aucune réservation", comment: "")
+            tableView.setEmptyView(emptyMessage, "")
         }
         else {
             tableView.restore()
@@ -132,7 +133,7 @@ class CustomerRouteListTableViewController: UITableViewController {
         cell.myRouteFrom?.text = section.customerReservations[indexPath.row].fStation
         cell.myRouteTo?.text = section.customerReservations[indexPath.row].tStation
         cell.myRoutePrice?.text = section.customerReservations[indexPath.row].routePrice
-        cell.myRoutePlace?.text = section.customerReservations[indexPath.row].remainingPlace
+        cell.myRoutePlace?.text = section.customerReservations[indexPath.row].place
         
         return cell
     }
@@ -148,11 +149,12 @@ class CustomerRouteListTableViewController: UITableViewController {
             routeDetailVC.detailFStation = section.customerReservations[selectedIndex!].fStation
             routeDetailVC.detailHour = section.customerReservations[selectedIndex!].hour
             routeDetailVC.detailPrice = section.customerReservations[selectedIndex!].routePrice
-            routeDetailVC.detailRemainingPlace = section.customerReservations[selectedIndex!].remainingPlace
+            routeDetailVC.detailRemainingPlace = section.customerReservations[selectedIndex!].place
             routeDetailVC.detailTStation = section.customerReservations[selectedIndex!].tStation
             routeDetailVC.detailFStationDetails = section.customerReservations[selectedIndex!].fStationDetail
             routeDetailVC.detailTStationDetails = section.customerReservations[selectedIndex!].tStationDetail
-            routeDetailVC.routeId = section.customerReservations[selectedIndex!].PK
+            routeDetailVC.routeId = section.customerReservations[selectedIndex!].routeId
+            routeDetailVC.reservationId = section.customerReservations[selectedIndex!].reservationId
         }
     }
 }

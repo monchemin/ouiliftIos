@@ -11,7 +11,7 @@ import UIKit
 class OuiLiftTabBarController: UITabBarController {
     
     struct Customer: Codable {
-        var PK: String?
+        var Id: String?
         var firstName: String?
         var lastName: String?
         var phoneNumber: String?
@@ -19,9 +19,11 @@ class OuiLiftTabBarController: UITabBarController {
         var password: String?
         var createdAt: String?
         var drivingNumber: String?
+        var activationCode: String?
+        var active: String?
         
-        init (_ customerKP: String, _ customerFistName: String, _ customerLastName: String, _ customerPhoneNumber: String, _ customerEMailAddress: String, _ customerPassword: String, _ customerCreatedAt: String, _ customerDrivingNumber: String) {
-            self.PK = customerKP
+        init (_ customerKP: String, _ customerFistName: String, _ customerLastName: String, _ customerPhoneNumber: String, _ customerEMailAddress: String, _ customerPassword: String, _ customerCreatedAt: String, _ customerDrivingNumber: String, _ customerActivationCode: String, _ customerActive: String) {
+            self.Id = customerKP
             self.firstName = customerFistName
             self.lastName = customerLastName
             self.phoneNumber = customerPhoneNumber
@@ -29,6 +31,8 @@ class OuiLiftTabBarController: UITabBarController {
             self.password = customerPassword
             self.createdAt = customerCreatedAt
             self.drivingNumber = customerDrivingNumber
+            self.activationCode = customerActivationCode
+            self.active = customerActive
         }
     }
     

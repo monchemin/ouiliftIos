@@ -10,6 +10,7 @@ import UIKit
 
 class ReservationDetailViewController: UIViewController {
     
+    var reservationId: String?
     var routeId: String?
     var detailDate: String?
     var detailPrice: String?
@@ -20,6 +21,16 @@ class ReservationDetailViewController: UIViewController {
     var detailTStation: String?
     var detailTStationDetails: String?
     var defaulValue: String = ""
+    
+    struct CanceledReservation: Codable {
+        var customerId: String
+        var reservationId: String
+        
+        init (_ customerId: String, _ reservationId: String) {
+            self.customerId = customerId
+            self.reservationId = reservationId
+        }
+    }
     
     
     @IBOutlet weak var reservationDetailDateHeure: UILabel!
@@ -51,6 +62,33 @@ class ReservationDetailViewController: UIViewController {
         reservationPlace.text = "\(detailRemainingPlace ?? defaulValue) Place(s)"
     }
     
+    @IBAction func cancelReservation(_ sender: Any) {
+        let customerId = OuiLiftTabBarController.connectedCustomer?.Id
+        let reservationApi = BaseAPI<CanceledReservation>(endpoint: "reservations.php")
+        let reservation = CanceledReservation(customerId!, self.reservationId!)
+        reservationApi.delete(TRequest: reservation, completion: { (status) in
+            if (status == 200) {
+                
+                DispatchQueue.main.async {
+                    self.showAlert(message: "Confirmation de votre enregistrement")
+                    //toDo : revenir a ecran de recherche de route
+                    // self.performSegue(withIdentifier: "segueToCreateAccount", sender: nil)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.showAlert(message: "Une erreur est survenue. Veuillez réessayer")
+                }
+            }
+        })
+    }
+    
+    func showAlert(message: String) {
+        let alertController = UIAlertController(title: "Oui Lift", message:
+            message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        
+        self.present(alertController, animated: false, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

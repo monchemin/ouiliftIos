@@ -32,6 +32,7 @@ class CreateAccountViewController: UIViewController {
         var phoneNumber: String
         var eMail: String
         var password: String
+        var language: String
         
         init (_ customerFistName: String, _ customerLastName: String, _ customerPhoneNumber: String, _ customerEMailAddress: String, _ customerPassword: String) {
             self.firstName = customerFistName
@@ -39,19 +40,23 @@ class CreateAccountViewController: UIViewController {
             self.phoneNumber = customerPhoneNumber
             self.eMail = customerEMailAddress
             self.password = customerPassword
+            self.language = Locale.current.languageCode ?? "en"
         }
     }
     
     struct Reservation: Codable {
-        // var reservationDate: String
-        var FK_Route: String
-        var FK_Customer: String
+        var customer: String
+        var route: String
         var place: String
+        var language: String
+        var isFirstReservation: Bool
         
-        init (_ FK_Route: String, _ FK_Customer: String, _ place: String) {
-            self.FK_Route = FK_Route
-            self.FK_Customer = FK_Customer
+        init (_ customer: String, _ route: String, _ place: String, _ isFirstReservation: Bool) {
+            self.customer = customer
+            self.route = route
             self.place = place
+            self.isFirstReservation = isFirstReservation
+            self.language = Locale.current.languageCode ?? "en"
         }
     }
     
@@ -84,12 +89,14 @@ class CreateAccountViewController: UIViewController {
                     if (lastIndex != "") {
                         // faire le call pour enregister la reservation
                         let reservationApi = BaseAPI<Reservation>(endpoint: "reservations.php")
-                        let reservation = Reservation(self.routeId!, lastIndex, self.place!)
+                        let reservation = Reservation(lastIndex, self.routeId!, self.place!, true)
                         reservationApi.post(TRequest: reservation, completion: { (status) in
                             if (status == 200) {
                                 
                                 DispatchQueue.main.async {
                                     self.showAlert(message: "Confirmation de votre enregistrement")
+                                    // toDo : revenir a ecran de recherche de route
+                                    // self.performSegue(withIdentifier: "segueToCreateAccount", sender: nil)
                                 }
                             } else {
                                 DispatchQueue.main.async {

@@ -49,6 +49,23 @@ class RouteDetailViewController: UIViewController {
     
     @IBAction func reservationAction(_ sender: Any) {
         if (OuiLiftTabBarController.connectedCustomer != nil) {
+            let customerId = OuiLiftTabBarController.connectedCustomer?.Id
+            let reservationApi = BaseAPI<CreateAccountViewController.Reservation>(endpoint: "reservations.php")
+            let reservation = CreateAccountViewController.Reservation(customerId!, self.routeId!, self.detailRemainingPlace!, true)
+            reservationApi.post(TRequest: reservation, completion: { (status) in
+                if (status == 200) {
+                    
+                    DispatchQueue.main.async {
+                        self.showAlert(message: "Confirmation de votre enregistrement")
+                        //toDo : revenir a ecran de recherche de route
+                        // self.performSegue(withIdentifier: "segueToCreateAccount", sender: nil)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.showAlert(message: "Une erreur est survenue. Veuillez réessayer")
+                    }
+                }
+            })
             
         } else {
             DispatchQueue.main.async {
@@ -76,6 +93,14 @@ class RouteDetailViewController: UIViewController {
             createAccountVC.place = routeDetailPlaceToReserve.text
             createAccountVC.price = detailPrice
         }
+    }
+    
+    func showAlert(message: String) {
+        let alertController = UIAlertController(title: "Oui Lift", message:
+            message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        
+        self.present(alertController, animated: false, completion: nil)
     }
 
 }
