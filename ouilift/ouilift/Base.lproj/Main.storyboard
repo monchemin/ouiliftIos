@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qbQ-yY-bba">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Sb-8c-TNN">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -716,7 +716,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Af7-lR-eX2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5981" y="296"/>
+            <point key="canvasLocation" x="-7641" y="145"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="r1X-tU-BWy">
@@ -1115,7 +1115,7 @@
         <!--Mon compte-->
         <scene sceneID="Qdb-wh-JUg">
             <objects>
-                <viewController id="qbQ-yY-bba" sceneMemberID="viewController">
+                <viewController id="qbQ-yY-bba" customClass="MyAccountViewController" customModule="ouilift" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wzu-Q5-ZMA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="1150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1151,6 +1151,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
+                                                            <action selector="activateAccount:" destination="qbQ-yY-bba" eventType="touchUpInside" id="qMU-Nr-0aH"/>
                                                             <action selector="connect:" destination="ZgA-Xg-MsV" eventType="touchUpInside" id="h29-id-ZV2"/>
                                                         </connections>
                                                     </button>
@@ -1194,6 +1195,7 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="connect:" destination="ZgA-Xg-MsV" eventType="touchUpInside" id="14s-O0-gzH"/>
+                                                            <action selector="modifyEmail:" destination="qbQ-yY-bba" eventType="touchUpInside" id="C0q-A8-I3e"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1242,6 +1244,7 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="connect:" destination="ZgA-Xg-MsV" eventType="touchUpInside" id="KeE-vW-dfi"/>
+                                                            <action selector="updateAccountInformation:" destination="qbQ-yY-bba" eventType="touchUpInside" id="tfb-Uo-brG"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1287,6 +1290,7 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="connect:" destination="ZgA-Xg-MsV" eventType="touchUpInside" id="XIy-gb-at1"/>
+                                                            <action selector="updateAccountPwd:" destination="qbQ-yY-bba" eventType="touchUpInside" id="zKa-5k-FGk"/>
                                                         </connections>
                                                     </button>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirmation" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="khl-M6-2WH">
@@ -1337,6 +1341,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
+                                                            <action selector="becomeDriver:" destination="qbQ-yY-bba" eventType="touchUpInside" id="LUB-5U-I6o"/>
                                                             <action selector="connect:" destination="ZgA-Xg-MsV" eventType="touchUpInside" id="SQo-EJ-oVV"/>
                                                         </connections>
                                                     </button>
@@ -1349,6 +1354,10 @@
                                                         <state key="normal" title="DÉCONNEXION ..." backgroundImage="backGroundYellow">
                                                             <color key="titleColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="logOut:" destination="qbQ-yY-bba" eventType="touchUpInside" id="JiS-fr-Zpq"/>
+                                                            <segue destination="9Sb-8c-TNN" kind="show" animates="NO" id="AcT-dM-Dtw"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -1395,6 +1404,20 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Mon compte" image="outline_person_outline_black_36dp" id="6i1-7y-EDi"/>
                     <size key="freeformSize" width="320" height="1150"/>
+                    <connections>
+                        <outlet property="accountActivationCode" destination="fnV-x8-hVe" id="Nji-Ud-Leb"/>
+                        <outlet property="accountDriverLicense" destination="CKw-gk-qDe" id="Kf8-jt-iAk"/>
+                        <outlet property="accountDriverLicensePwd" destination="Pur-yD-cE0" id="TxC-zj-E3a"/>
+                        <outlet property="accountEmail" destination="Er9-tW-baZ" id="GVF-s8-ElL"/>
+                        <outlet property="accountFirstName" destination="lm2-7g-YcV" id="Oc6-zZ-qWQ"/>
+                        <outlet property="accountLastName" destination="SWK-r2-qji" id="MZo-S1-I4v"/>
+                        <outlet property="accountNewPwd" destination="hIA-Dj-bYH" id="1HH-Nu-cWD"/>
+                        <outlet property="accountOldPwd" destination="JNV-Nm-I37" id="bS3-6o-Ivu"/>
+                        <outlet property="accountTelephone" destination="uKQ-88-z2u" id="t6O-Wy-LR5"/>
+                        <outlet property="activationCodePwd" destination="WA9-lz-IUt" id="6sw-Zv-cvW"/>
+                        <outlet property="emailPwd" destination="IWl-79-KiA" id="hRq-zP-4Fm"/>
+                        <outlet property="newPwdConfirmation" destination="khl-M6-2WH" id="2kT-di-fUm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vxx-AB-OUR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1456,7 +1479,7 @@
         <image name="outline_search_black_36pt_3x" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KXW-ne-19f"/>
+        <segue reference="t4d-mq-NdV"/>
         <segue reference="JZK-FZ-6xe"/>
     </inferredMetricsTieBreakers>
 </document>

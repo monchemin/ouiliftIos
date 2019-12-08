@@ -241,4 +241,40 @@ class BaseAPI<T: Codable> {
         task.resume()
     }
     
+    func put (TRequest: T, completion: @escaping (Int) -> Void) {
+        guard let url = URL(string: baseEndpoint+endpoint) else {
+            print("Error: cannot create URL")
+            return
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "PUT"
+        
+        let jsonData = try? JSONEncoder().encode(TRequest)
+        urlRequest.httpBody = jsonData
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: urlRequest) { (data, response, error) in
+            guard error == nil else {
+                print("error calling POST")
+                print(error!)
+                return
+            }
+            
+            do {
+                if let data = data,
+                    let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
+                {
+                    if let TStatus = json["status"] as? Int {
+                        completion(TStatus)
+                    }
+                }
+                
+            } catch {
+                print("Error deserializing JSON: \(error)")
+            }
+        }
+        task.resume()
+    }
+    
 }
