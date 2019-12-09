@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
+   uuid = "B18B92FA-A026-49E5-AAD8-76BAAC6FABC6"
    type = "1"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "56C832AA-7798-4B65-838A-4A830F5EE99C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ouilift/ReservationDetailViewController.swift"
-            timestampString = "597458502.197153"
+            timestampString = "597460182.850291"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
@@ -19,6 +21,7 @@
             landmarkType = "7">
             <Locations>
                <Location
+                  uuid = "56C832AA-7798-4B65-838A-4A830F5EE99C - 8efd014e88f72bdf"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -26,14 +29,14 @@
                   moduleName = "ouilift"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/macpro/Desktop/UQAC/iOS/ouiliftIos/ouilift/ouilift/ReservationDetailViewController.swift"
-                  timestampString = "597458502.460637"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "69"
                   endingLineNumber = "69"
-                  offsetFromSymbolStart = "980">
+                  offsetFromSymbolStart = "836">
                </Location>
                <Location
+                  uuid = "56C832AA-7798-4B65-838A-4A830F5EE99C - ea40028d6fcad85b"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -41,12 +44,11 @@
                   moduleName = "ouilift"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/macpro/Desktop/UQAC/iOS/ouiliftIos/ouilift/ouilift/ReservationDetailViewController.swift"
-                  timestampString = "597458502.484221"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "70"
                   endingLineNumber = "70"
-                  offsetFromSymbolStart = "177">
+                  offsetFromSymbolStart = "160">
                </Location>
             </Locations>
          </BreakpointContent>

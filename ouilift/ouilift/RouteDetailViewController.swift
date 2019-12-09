@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RouteDetailViewController: UIViewController {
+class RouteDetailViewController: UIViewController, UITextFieldDelegate {
     
     var routeId: String?
     var detailDate: String?
@@ -77,6 +77,11 @@ class RouteDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        routeDetailPlaceToReserve.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         routeDetailDateHeure.text = "Départ le \(detailDate ?? defaulValue) à \(detailHour ?? defaulValue)"
         routeDetailFrom.text = "De: \(detailFStation ?? defaulValue)"
         routeDetailFromDetails.text = detailFStationDetails ?? defaulValue
@@ -101,6 +106,25 @@ class RouteDetailViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "OK", style: .default))
         
         self.present(alertController, animated: false, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
 
 }

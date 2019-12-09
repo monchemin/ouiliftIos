@@ -43,6 +43,9 @@ class MyAccountViewController: UIViewController {
         accountTelephone.text = OuiLiftTabBarController.connectedCustomer?.phoneNumber
         accountDriverLicense.text = OuiLiftTabBarController.connectedCustomer?.drivingNumber
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+
     }
     
     
@@ -264,6 +267,20 @@ class MyAccountViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "OK", style: .default))
         
         self.present(alertController, animated: false, completion: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
     
     /*
