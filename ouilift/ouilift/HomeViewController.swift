@@ -1,18 +1,16 @@
 //
-//  DatePickerViewController.swift
+//  HomeViewController.swift
 //  ouilift
 //
-//  Created by Mewena on 2019-10-26.
+//  Created by Mewena on 2019-12-14.
 //  Copyright © 2019 AwessoMeTech. All rights reserved.
 //
 
 import UIKit
 
-class DatePickerViewController: UIViewController {
-    
-    @IBOutlet weak var selectedDate: UIDatePicker!
-    
-    override func viewDidLoad() {
+class HomeViewController: UIViewController {
+
+    override func viewDidLoad() {// HomeViewController
         super.viewDidLoad()
         if #available(iOS 13.0, *) {
             overrideUserInterfaceStyle = .light
@@ -23,13 +21,15 @@ class DatePickerViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "segueDatePickerToSearchRoute") {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            OuiLiftTabBarController.stationDate = dateFormatter.string(from: selectedDate.date)
-        }
+    override open var shouldAutorotate: Bool {
+        return false
     }
+    
+    // Specify the orientation.
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
 
     /*
     // MARK: - Navigation

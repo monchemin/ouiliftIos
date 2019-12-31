@@ -40,6 +40,11 @@ class SearchStationTableViewController: UITableViewController, UISearchResultsUp
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        } else {
+            // Fallback on earlier versions
+        }
         
         let internalRouteApi = BaseAPI<RouteStation>(endpoint: "route-station.php")
         internalRouteApi.get(completion: {(result) in
@@ -83,8 +88,10 @@ class SearchStationTableViewController: UITableViewController, UISearchResultsUp
 
         if (searchController.isActive) {
             cell.stationName?.text = filteredData[indexPath.row].stationName
+            cell.stationAddress?.text = filteredData[indexPath.row].stationAddress
         } else {
             cell.stationName?.text = routeStations[indexPath.row].stationName
+            cell.stationAddress?.text = routeStations[indexPath.row].stationAddress
         }
 
         return cell

@@ -82,6 +82,11 @@ class CustomerRouteListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        } else {
+            // Fallback on earlier versions
+        }
         
         let customerId = OuiLiftTabBarController.connectedCustomer?.Id
         let customerRouteListApi = BaseAPI<CustomerReservation>(endpoint: "reservation-list.php/\(customerId ?? "0")")

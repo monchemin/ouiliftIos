@@ -71,6 +71,11 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        } else {
+            // Fallback on earlier versions
+        }
 
         customerFirstName.delegate = self
         customerLastName.delegate = self
@@ -103,8 +108,9 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                                 
                                 DispatchQueue.main.async {
                                     self.showAlert(message: "Confirmation de votre enregistrement")
-                                    // toDo : revenir a ecran de recherche de route
-                                    // self.performSegue(withIdentifier: "segueToCreateAccount", sender: nil)
+                                    DispatchQueue.main.async {
+                                        self.performSegue(withIdentifier: "segueToMyReservationController", sender: nil)
+                                    }
                                 }
                             } else {
                                 DispatchQueue.main.async {

@@ -37,6 +37,11 @@ class MyAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        } else {
+            // Fallback on earlier versions
+        }
         accountEmail.text = OuiLiftTabBarController.connectedCustomer?.eMail
         accountFirstName.text = OuiLiftTabBarController.connectedCustomer?.firstName
         accountLastName.text = OuiLiftTabBarController.connectedCustomer?.lastName

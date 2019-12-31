@@ -10,9 +10,14 @@
 		8E0D6E77233FAE540020964A /* FieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0D6E76233FAE540020964A /* FieldValidator.swift */; };
 		8E0D6E79234961720020964A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0D6E78234961720020964A /* LoginViewController.swift */; };
 		8E1CED1523522EDC0056A5EF /* OuiLiftTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1CED1423522EDC0056A5EF /* OuiLiftTabBarController.swift */; };
+		8E44FC9D23A57F1800636066 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E44FC9C23A57F1700636066 /* HomeViewController.swift */; };
+		8E44FC9F23A6E94C00636066 /* DriverRouteListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E44FC9E23A6E94C00636066 /* DriverRouteListTableViewController.swift */; };
+		8E44FCA123A6FC0A00636066 /* AddRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E44FCA023A6FC0A00636066 /* AddRouteViewController.swift */; };
+		8E4DE13623BAAAA600651F00 /* AddCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4DE13523BAAAA600651F00 /* AddCarViewController.swift */; };
 		8E63A1A122ECB40200D8BBFF /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E63A1A022ECB40200D8BBFF /* BaseApi.swift */; };
 		8E6CCD3A22FF345600347AEF /* RoutesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6CCD3922FF345600347AEF /* RoutesTableViewController.swift */; };
 		8E6DFC58233C332100A6BB8F /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6DFC57233C332100A6BB8F /* CreateAccountViewController.swift */; };
+		8E766F1B23BA62260048A8EE /* CustomerCarsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E766F1A23BA62260048A8EE /* CustomerCarsTableViewController.swift */; };
 		8E836932239C2D86008FFDEB /* MyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E836931239C2D86008FFDEB /* MyAccountViewController.swift */; };
 		8EDA7A4623270353000E5B66 /* SearchRoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA7A4523270353000E5B66 /* SearchRoutesViewController.swift */; };
 		8EDA7A48232D6735000E5B66 /* RouteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDA7A47232D6735000E5B66 /* RouteDetailViewController.swift */; };
@@ -50,9 +55,14 @@
 		8E0D6E76233FAE540020964A /* FieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldValidator.swift; sourceTree = "<group>"; };
 		8E0D6E78234961720020964A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8E1CED1423522EDC0056A5EF /* OuiLiftTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuiLiftTabBarController.swift; sourceTree = "<group>"; };
+		8E44FC9C23A57F1700636066 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8E44FC9E23A6E94C00636066 /* DriverRouteListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRouteListTableViewController.swift; sourceTree = "<group>"; };
+		8E44FCA023A6FC0A00636066 /* AddRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRouteViewController.swift; sourceTree = "<group>"; };
+		8E4DE13523BAAAA600651F00 /* AddCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarViewController.swift; sourceTree = "<group>"; };
 		8E63A1A022ECB40200D8BBFF /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
 		8E6CCD3922FF345600347AEF /* RoutesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesTableViewController.swift; sourceTree = "<group>"; };
 		8E6DFC57233C332100A6BB8F /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		8E766F1A23BA62260048A8EE /* CustomerCarsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerCarsTableViewController.swift; sourceTree = "<group>"; };
 		8E836931239C2D86008FFDEB /* MyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
 		8EDA7A4523270353000E5B66 /* SearchRoutesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRoutesViewController.swift; sourceTree = "<group>"; };
 		8EDA7A47232D6735000E5B66 /* RouteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailViewController.swift; sourceTree = "<group>"; };
@@ -126,9 +136,14 @@
 			isa = PBXGroup;
 			children = (
 				8EEC0DE1235BBF410053E897 /* CustomerRouteListTableViewController.swift */,
+				8E44FC9E23A6E94C00636066 /* DriverRouteListTableViewController.swift */,
 				8EE8313D22DA55F800F4BC72 /* AppDelegate.swift */,
 				8EE8313F22DA55F800F4BC72 /* ViewController.swift */,
 				8EE8314122DA55F800F4BC72 /* Main.storyboard */,
+				8E4DE13523BAAAA600651F00 /* AddCarViewController.swift */,
+				8E766F1A23BA62260048A8EE /* CustomerCarsTableViewController.swift */,
+				8E44FCA023A6FC0A00636066 /* AddRouteViewController.swift */,
+				8E44FC9C23A57F1700636066 /* HomeViewController.swift */,
 				8E836931239C2D86008FFDEB /* MyAccountViewController.swift */,
 				8EEC0DEB2364FB550053E897 /* DatePickerViewController.swift */,
 				8EEC0DE72363F06D0053E897 /* SearchStationTableViewController.swift */,
@@ -303,15 +318,20 @@
 				8E836932239C2D86008FFDEB /* MyAccountViewController.swift in Sources */,
 				8EEC0DEC2364FB550053E897 /* DatePickerViewController.swift in Sources */,
 				8EEC0DE82363F06D0053E897 /* SearchStationTableViewController.swift in Sources */,
+				8E766F1B23BA62260048A8EE /* CustomerCarsTableViewController.swift in Sources */,
 				8E1CED1523522EDC0056A5EF /* OuiLiftTabBarController.swift in Sources */,
+				8E4DE13623BAAAA600651F00 /* AddCarViewController.swift in Sources */,
 				8E0D6E77233FAE540020964A /* FieldValidator.swift in Sources */,
 				8EEC0DE4235BD0910053E897 /* ReservationDetailViewController.swift in Sources */,
 				8EE8314022DA55F800F4BC72 /* ViewController.swift in Sources */,
 				8EDA7A48232D6735000E5B66 /* RouteDetailViewController.swift in Sources */,
 				8E63A1A122ECB40200D8BBFF /* BaseApi.swift in Sources */,
+				8E44FC9D23A57F1800636066 /* HomeViewController.swift in Sources */,
 				8EEC0DE2235BBF410053E897 /* CustomerRouteListTableViewController.swift in Sources */,
 				8EDA7A4623270353000E5B66 /* SearchRoutesViewController.swift in Sources */,
 				8EE8313E22DA55F800F4BC72 /* AppDelegate.swift in Sources */,
+				8E44FC9F23A6E94C00636066 /* DriverRouteListTableViewController.swift in Sources */,
+				8E44FCA123A6FC0A00636066 /* AddRouteViewController.swift in Sources */,
 				8E6CCD3A22FF345600347AEF /* RoutesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

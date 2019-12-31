@@ -83,6 +83,11 @@ class RoutesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        } else {
+            // Fallback on earlier versions
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -106,6 +111,11 @@ class RoutesTableViewController: UITableViewController {
             /*self.internaleRoutesByDate = groups.map { (key, values) in
                 return DateSection(internalRouteDate: key, internalRoutes: values)
             }*/
+            
+            // initialisation des parametres de filtres
+            OuiLiftTabBarController.fromStationId = ""
+            OuiLiftTabBarController.toStationId = ""
+            OuiLiftTabBarController.stationDate = ""
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()

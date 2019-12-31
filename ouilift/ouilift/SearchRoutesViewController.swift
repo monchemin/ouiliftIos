@@ -38,6 +38,11 @@ class SearchRoutesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        } else {
+            // Fallback on earlier versions
+        }
         
         formStation?.text = OuiLiftTabBarController.formStationName ?? defaulValue
         toStation?.text = OuiLiftTabBarController.toStationName ?? defaulValue
@@ -49,7 +54,11 @@ class SearchRoutesViewController: UIViewController {
             let searchStationsVC = segue.destination as! SearchStationTableViewController
             searchStationsVC.isFromClicked = isFromClicked
         }
-        // toDo traiter lautre segue pour aller à routeTableVC
+        if (segue.identifier == "segueToRoutesViewController") {
+            formStation?.text = defaulValue
+            toStation?.text = defaulValue
+            dateRoute?.text = defaulValue
+        }
     }
 
 }
