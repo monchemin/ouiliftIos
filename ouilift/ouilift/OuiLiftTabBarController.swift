@@ -47,6 +47,10 @@ class OuiLiftTabBarController: UITabBarController {
     static var toStationName: String?
     
     static var stationDate: String?
+    
+    static var carBrandAndModel: String?
+    
+    static var carBrandAndModelId: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()

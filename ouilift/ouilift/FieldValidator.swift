@@ -21,6 +21,7 @@ class FieldValidator {
     enum ValidatorType {
         case email
         case number
+        case year
     }
     
     func isValid(_ type: ValidatorType, _ value: String) throws -> String {
@@ -29,6 +30,8 @@ class FieldValidator {
             return try isEmailValid(value)
         case .number:
             return try isEmailValid(value)
+        case .year:
+        return try isYearValid(value)
         }
     }
     
@@ -39,6 +42,17 @@ class FieldValidator {
             }
         } catch {
             throw ValidationError("Email invalide")
+        }
+        return value
+    }
+    
+    func isYearValid(_ value: String) throws -> String {
+        do {
+            if try NSRegularExpression(pattern: "^(19|20)[0-9]{2}$").firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+                throw ValidationError("Année invalide")
+            }
+        } catch {
+            throw ValidationError("Année invalide")
         }
         return value
     }

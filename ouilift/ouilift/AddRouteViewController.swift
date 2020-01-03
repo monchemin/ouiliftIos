@@ -9,7 +9,17 @@
 import UIKit
 
 class AddRouteViewController: UIViewController {
-
+    
+    var defaulValue: String = ""
+    
+    var isFromClicked: Bool?
+    
+    @IBOutlet weak var carBrandAndModel: UITextField!
+    
+    @IBAction func carAction(_ sender: Any) {
+        self.performSegue(withIdentifier: "segueToCustomerCarViewController", sender: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,7 +29,7 @@ class AddRouteViewController: UIViewController {
             // Fallback on earlier versions
         }
 
-        // Do any additional setup after loading the view.
+        carBrandAndModel?.text = OuiLiftTabBarController.carBrandAndModel ?? defaulValue
     }
     
 

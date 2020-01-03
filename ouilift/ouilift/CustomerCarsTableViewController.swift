@@ -60,9 +60,7 @@ class CustomerCarsTableViewController: UITableViewController, UISearchResultsUpd
         
         let carApi = BaseAPI<Car>(endpoint: "car.php")
         
-        // let filterParam = CarFilter(OuiLiftTabBarController.connectedCustomer?.Id ?? "")
-        
-        let filterParam = CarFilter("72")
+        let filterParam = CarFilter(OuiLiftTabBarController.connectedCustomer?.Id ?? "")
 
         carApi.post(TRequest: filterParam,completion: {(result) in
             self.cars = result;
@@ -131,6 +129,17 @@ class CustomerCarsTableViewController: UITableViewController, UISearchResultsUpd
         }
         
         self.tableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "segueToAddRouteViewController") {
+            let selectedIndex = tableView.indexPathForSelectedRow?.row
+            OuiLiftTabBarController.carBrandAndModel = "\(filteredData[selectedIndex!].brand) \(filteredData[selectedIndex!].model) \(filteredData[selectedIndex!].color)"
+            OuiLiftTabBarController.carBrandAndModelId = filteredData[selectedIndex!].Id
+            
+            let carTabVC = segue.source as! CustomerCarsTableViewController
+            carTabVC.dismiss(animated: false, completion: nil)
+        }
     }
 
     /*
