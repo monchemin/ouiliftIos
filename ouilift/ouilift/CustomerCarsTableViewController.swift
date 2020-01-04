@@ -137,8 +137,12 @@ class CustomerCarsTableViewController: UITableViewController, UISearchResultsUpd
             OuiLiftTabBarController.carBrandAndModel = "\(filteredData[selectedIndex!].brand) \(filteredData[selectedIndex!].model) \(filteredData[selectedIndex!].color)"
             OuiLiftTabBarController.carBrandAndModelId = filteredData[selectedIndex!].Id
             
-            let carTabVC = segue.source as! CustomerCarsTableViewController
+            /*let carTabVC = segue.source as! CustomerCarsTableViewController
             carTabVC.dismiss(animated: false, completion: nil)
+            
+            let addRouteVC = segue.destination as! AddRouteViewController
+            addRouteVC.viewDidLoad()
+            addRouteVC.viewWillAppear(true)*/
         }
     }
 
