@@ -40,7 +40,7 @@ class OuiLiftTabBarController: UITabBarController {
     
     static var fromStationId: String?
     
-    static var formStationName: String?
+    static var fromStationName: String?
     
     static var toStationId: String?
     
@@ -53,6 +53,47 @@ class OuiLiftTabBarController: UITabBarController {
     static var carBrandAndModelId: String?
     
     static var routeDateTime: Date?
+    
+    static var routeFromStationId: String?
+    
+    static var routeFromStationName: String?
+    
+    static var routeToStationId: String?
+    
+    static var routeToStationName: String?
+    
+    static var menuItems: [UITabBarItem]?
+    
+    static func initSearchRouteField(){
+        fromStationId = nil
+        fromStationName = nil
+        toStationId = nil
+        toStationName = nil
+        stationDate = nil
+    }
+    
+    static func initRouteField(){
+        routeDateTime = nil
+        routeFromStationId = nil
+        routeFromStationName = nil
+        routeToStationId = nil
+        routeToStationName = nil
+        carBrandAndModelId = nil
+        carBrandAndModel = nil
+    }
+    
+    
+    static func manageTabBarMenus() {
+        if (OuiLiftTabBarController.connectedCustomer == nil){
+            OuiLiftTabBarController.menuItems![1].isEnabled = false
+            OuiLiftTabBarController.menuItems![2].isEnabled = false
+            OuiLiftTabBarController.menuItems![3].isEnabled = false
+        } else {
+            OuiLiftTabBarController.menuItems![1].isEnabled = true
+            OuiLiftTabBarController.menuItems![2].isEnabled = true
+            OuiLiftTabBarController.menuItems![3].isEnabled = true
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +102,12 @@ class OuiLiftTabBarController: UITabBarController {
         } else {
             // Fallback on earlier versions
         }
+        
+        OuiLiftTabBarController.menuItems = self.tabBar.items!
+        
+        /* var items: [UITabBarItem]? {get {
+            return self.toolbarItems
+            }} */
 
         // Do any additional setup after loading the view.
     }

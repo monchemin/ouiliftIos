@@ -44,7 +44,7 @@ class SearchRoutesViewController: UIViewController {
             // Fallback on earlier versions
         }
         
-        formStation?.text = OuiLiftTabBarController.formStationName ?? defaulValue
+        formStation?.text = OuiLiftTabBarController.fromStationName ?? defaulValue
         toStation?.text = OuiLiftTabBarController.toStationName ?? defaulValue
         dateRoute?.text = OuiLiftTabBarController.stationDate ?? defaulValue
     }

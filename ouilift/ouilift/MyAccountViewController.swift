@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyAccountViewController: UIViewController {
+class MyAccountViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var accountActivationCode: UITextField!
     
@@ -47,6 +47,19 @@ class MyAccountViewController: UIViewController {
         accountLastName.text = OuiLiftTabBarController.connectedCustomer?.lastName
         accountTelephone.text = OuiLiftTabBarController.connectedCustomer?.phoneNumber
         accountDriverLicense.text = OuiLiftTabBarController.connectedCustomer?.drivingNumber
+        
+        accountActivationCode.delegate = self
+        activationCodePwd.delegate = self
+        accountEmail.delegate = self
+        emailPwd.delegate = self
+        accountLastName.delegate = self
+        accountFirstName.delegate = self
+        accountTelephone.delegate = self
+        accountOldPwd.delegate = self
+        accountNewPwd.delegate = self
+        newPwdConfirmation.delegate = self
+        accountDriverLicensePwd.delegate = self
+        accountDriverLicense.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -264,6 +277,9 @@ class MyAccountViewController: UIViewController {
     
     @IBAction func logOut(_ sender: Any) {
         OuiLiftTabBarController.connectedCustomer = nil
+        OuiLiftTabBarController.initSearchRouteField()
+        OuiLiftTabBarController.initRouteField()
+        OuiLiftTabBarController.manageTabBarMenus()
     }
     
     func showAlert(message: String) {
@@ -286,6 +302,11 @@ class MyAccountViewController: UIViewController {
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
+    }
+    
+    func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     
     /*

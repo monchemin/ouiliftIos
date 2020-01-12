@@ -111,10 +111,10 @@ class AddCarViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
             var validatedCarYear: String
             do {
                 validatedCarYear = try carYear.validatedText(FieldValidator.ValidatorType.year)
-                let createdCarApi = BaseAPI<CreatedCar>(endpoint: "car-create.php")
+                let createCarApi = BaseAPI<CreatedCar>(endpoint: "car-create.php")
                 let createdCar = CreatedCar(OuiLiftTabBarController.connectedCustomer?.Id ?? "", validatedCarYear, self.selectedModel, self.selectedColor, self.carNumber.text!)
                 
-                createdCarApi.post(TRequest: createdCar, completion: { (status) in
+                createCarApi.post(TRequest: createdCar, completion: { (status) in
                     if (status == 200) {
                         
                         DispatchQueue.main.async {

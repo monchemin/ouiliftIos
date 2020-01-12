@@ -112,15 +112,26 @@ class SearchStationTableViewController: UITableViewController, UISearchResultsUp
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "segueToSearchRouteController") {
-            let searchRoutesVC = segue.destination as! SearchRoutesViewController
             
             let selectedIndex = tableView.indexPathForSelectedRow?.row
             if (isFromClicked!) {
                 OuiLiftTabBarController.fromStationId = filteredData[selectedIndex!].stationId
-                OuiLiftTabBarController.formStationName = filteredData[selectedIndex!].stationName
+                OuiLiftTabBarController.fromStationName = filteredData[selectedIndex!].stationName
             } else {
                 OuiLiftTabBarController.toStationId = filteredData[selectedIndex!].stationId
                 OuiLiftTabBarController.toStationName = filteredData[selectedIndex!].stationName
+            }
+            
+        }
+        
+        if (segue.identifier == "segueStationControllerToAddRoute") {
+            let selectedIndex = tableView.indexPathForSelectedRow?.row
+            if (isFromClicked!) {
+                OuiLiftTabBarController.routeFromStationId = filteredData[selectedIndex!].stationId
+                OuiLiftTabBarController.routeFromStationName = filteredData[selectedIndex!].stationName
+            } else {
+                OuiLiftTabBarController.routeToStationId = filteredData[selectedIndex!].stationId
+                OuiLiftTabBarController.routeToStationName = filteredData[selectedIndex!].stationName
             }
             
         }
