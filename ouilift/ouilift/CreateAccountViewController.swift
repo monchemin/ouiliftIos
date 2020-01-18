@@ -100,35 +100,22 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                 let customerApi = BaseAPI<Customer>(endpoint: "customer.php")
                 customerApi.postLastIndex(TRequest: customerAccout, completion: { (lastIndex) in
                     if (lastIndex != "") {
-                        // enreg les imformations du user connecté
-                        OuiLiftTabBarController.connectedCustomer =  OuiLiftTabBarController.Customer(lastIndex, self.customerFirstName.text ?? "", self.customerLastName.text ?? "", self.customerPhone.text ?? "", validatedEmail, self.customerPwd.text ?? "", "", "", "", "0")
-                        
-                        // activation des menus
-                        OuiLiftTabBarController.manageTabBarMenus()
-                        /**
-                            self.Id = customerKP
-                            self.firstName = customerFistName
-                            self.lastName = customerLastName
-                            self.phoneNumber = customerPhoneNumber
-                            self.eMail = customerEMailAddress
-                            self.password = customerPassword
-                            self.createdAt = customerCreatedAt
-                            self.drivingNumber = customerDrivingNumber
-                            self.activationCode = customerActivationCode
-                            self.active = customerActive
-                         */
+                        DispatchQueue.main.async {
+                            // enreg les imformations du user connecté
+                            OuiLiftTabBarController.connectedCustomer =  OuiLiftTabBarController.Customer(lastIndex, self.customerFirstName.text ?? "", self.customerLastName.text ?? "", self.customerPhone.text ?? "", validatedEmail, self.customerPwd.text ?? "", "", "", "", "0")
+                            
+                            // activation des menus
+                            OuiLiftTabBarController.manageTabBarMenus()
+                        }
                         
                         // faire le call pour enregister la reservation
                         let reservationApi = BaseAPI<Reservation>(endpoint: "reservations.php")
                         let reservation = Reservation(lastIndex, self.routeId!, self.place!, true)
                         reservationApi.post(TRequest: reservation, completion: { (status) in
                             if (status == 200) {
-                                
                                 DispatchQueue.main.async {
                                     self.showAlert(message: "Confirmation de votre enregistrement")
-                                    DispatchQueue.main.async {
-                                        self.performSegue(withIdentifier: "segueToMyReservationController", sender: nil)
-                                    }
+                                    self.performSegue(withIdentifier: "segueToMyReservationController", sender: nil)
                                 }
                             } else {
                                 DispatchQueue.main.async {

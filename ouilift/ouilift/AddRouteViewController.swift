@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddRouteViewController: UIViewController, UITextFieldDelegate {
+class AddRouteViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var defaulValue: String = ""
     
@@ -36,6 +36,22 @@ class AddRouteViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    struct PickupHour: Codable {
+        var Id: String
+        var hour: String
+        var displayOrder: String
+        
+        init (_ Id: String, _ hour: String, _ displayOrder: String) {
+            self.Id = Id
+            self.hour = hour
+            self.displayOrder = displayOrder
+        }
+    }
+    
+    var pickupHours : [PickupHour] = []
+    
+    var selectedPickupHour: String!
+    
     @IBOutlet weak var carBrandAndModel: UITextField!
     
     @IBOutlet weak var routeDateTime: UIDatePicker!
@@ -48,6 +64,7 @@ class AddRouteViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var routePrice: UITextField!
     
+    @IBOutlet weak var routeHour: UIPickerView!
     
     @IBAction func carAction(_ sender: Any) {
         self.performSegue(withIdentifier: "segueToCustomerCarViewController", sender: nil)
@@ -88,7 +105,7 @@ class AddRouteViewController: UIViewController, UITextFieldDelegate {
             showAlert(message: "Une erreur est survenue. Veuillez renseigner le prix")
         } else {
             let createRouteApi = BaseAPI<Route>(endpoint: "routes.php")
-            let createdRoute = Route(OuiLiftTabBarController.connectedCustomer?.Id ?? "", self.routePrice.text!, self.routePlace.text!, routeDate, "20", OuiLiftTabBarController.routeFromStationId!, OuiLiftTabBarController.routeToStationId!, OuiLiftTabBarController.carBrandAndModelId!)
+            let createdRoute = Route(OuiLiftTabBarController.connectedCustomer?.Id ?? "", self.routePrice.text!, self.routePlace.text!, routeDate, self.selectedPickupHour, OuiLiftTabBarController.routeFromStationId!, OuiLiftTabBarController.routeToStationId!, OuiLiftTabBarController.carBrandAndModelId!)
             
             createRouteApi.post(TRequest: createdRoute, completion: { (status) in
                 if (status == 200) {
@@ -126,6 +143,7 @@ class AddRouteViewController: UIViewController, UITextFieldDelegate {
         
         routePlace.delegate = self
         routePrice.delegate = self
+        routeHour.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -134,6 +152,16 @@ class AddRouteViewController: UIViewController, UITextFieldDelegate {
         routeDateTime.date = OuiLiftTabBarController.routeDateTime ?? routeDateTime.date
         routeFromStation?.text = OuiLiftTabBarController.routeFromStationName ?? defaulValue
         routeToStation?.text = OuiLiftTabBarController.routeToStationName ?? defaulValue
+        
+        
+        let hourApi = BaseAPI<PickupHour>(endpoint: "pickup-hour.php")
+        hourApi.get(completion: {(result) in
+            self.pickupHours = result;
+            DispatchQueue.main.async {
+                self.viewDidLoad()
+                self.viewWillAppear(true)
+            }
+        })
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -160,6 +188,22 @@ class AddRouteViewController: UIViewController, UITextFieldDelegate {
             let searchStationsVC = segue.destination as! SearchStationTableViewController
             searchStationsVC.isFromClicked = isFromClicked
         }
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickupHours.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickupHours[row].hour
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.selectedPickupHour = pickupHours[row].Id
     }
 
     /*

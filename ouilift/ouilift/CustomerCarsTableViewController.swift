@@ -145,6 +145,13 @@ class CustomerCarsTableViewController: UITableViewController, UISearchResultsUpd
             addRouteVC.viewWillAppear(true)*/
         }
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            cars.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.

@@ -62,6 +62,8 @@ class OuiLiftTabBarController: UITabBarController {
     
     static var routeToStationName: String?
     
+    // static var routePickupHour: String?
+    
     static var menuItems: [UITabBarItem]?
     
     static func initSearchRouteField(){
@@ -104,10 +106,7 @@ class OuiLiftTabBarController: UITabBarController {
         }
         
         OuiLiftTabBarController.menuItems = self.tabBar.items!
-        
-        /* var items: [UITabBarItem]? {get {
-            return self.toolbarItems
-            }} */
+        OuiLiftTabBarController.manageTabBarMenus()
 
         // Do any additional setup after loading the view.
     }

@@ -136,8 +136,8 @@ class AddCarViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "segueToCarTableViewController") {
-            let addCarVC = segue.source as! AddCarViewController
-            addCarVC.dismiss(animated: false, completion: nil)
+            let totoVC = segue.destination as! CustomerCarsTableViewController
+            totoVC.viewDidLoad()
         }
     }
     
