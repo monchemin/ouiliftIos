@@ -629,7 +629,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgLogo" translatesAutoresizingMaskIntoConstraints="NO" id="ntN-dO-1n3">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="105.5"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Urban carpool" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A6B-2d-YaN">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Covoiturage urbain" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A6B-2d-YaN">
                                         <rect key="frame" x="0.0" y="115.5" width="288" height="105.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                         <color key="textColor" red="0.098257340489999997" green="0.20516294239999999" blue="0.26843222979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -641,7 +641,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnB-ti-RFu">
                                                 <rect key="frame" x="70" y="0.0" width="148" height="106"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                <state key="normal" title="I' m a member" backgroundImage="buttonBlue2">
+                                                <state key="normal" title="Je suis membre" backgroundImage="buttonBlue2">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -662,8 +662,8 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="VIq-wX-F4S">
                                                 <rect key="frame" x="70" y="0.0" width="148" height="105.5"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                <state key="normal" title="I' m not a member" backgroundImage="buttonYellow2">
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <state key="normal" title="Je suis pas membre" backgroundImage="buttonYellow2">
                                                     <color key="titleColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -753,7 +753,7 @@
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvI-Wm-m2z">
-                                                <rect key="frame" x="10" y="122" width="280" height="52"/>
+                                                <rect key="frame" x="10" y="98" width="280" height="52"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="s9F-iq-Tkt"/>
                                                 </constraints>
@@ -765,15 +765,28 @@
                                                     <action selector="connect:" destination="ZgA-Xg-MsV" eventType="touchUpInside" id="kgm-Xl-cEH"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ter-5w-uS1">
+                                                <rect key="frame" x="10" y="157" width="280" height="30"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="Mot de passe oublié">
+                                                    <color key="titleColor" red="0.1035210416" green="0.23256629710000001" blue="0.30326092240000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="resetPwd:" destination="ZgA-Xg-MsV" eventType="touchDown" id="YFn-JN-XKC"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="Co1-6C-cXA" firstAttribute="leading" secondItem="8T0-OB-sW0" secondAttribute="leading" constant="10" id="1NC-ST-kw3"/>
+                                            <constraint firstItem="Ter-5w-uS1" firstAttribute="leading" secondItem="8T0-OB-sW0" secondAttribute="leading" constant="10" id="3aD-wN-HoC"/>
                                             <constraint firstItem="ttP-iY-3wF" firstAttribute="leading" secondItem="8T0-OB-sW0" secondAttribute="leading" constant="10" id="4FD-BM-wvs"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ter-5w-uS1" secondAttribute="bottom" constant="2" id="BUt-eP-saZ"/>
                                             <constraint firstItem="ttP-iY-3wF" firstAttribute="top" secondItem="Co1-6C-cXA" secondAttribute="bottom" constant="10" id="Bef-W0-Rsx"/>
                                             <constraint firstAttribute="trailing" secondItem="zvI-Wm-m2z" secondAttribute="trailing" constant="10" id="K2D-hh-S8j"/>
                                             <constraint firstItem="Co1-6C-cXA" firstAttribute="top" secondItem="8T0-OB-sW0" secondAttribute="top" constant="5" id="UeC-qB-kMF"/>
                                             <constraint firstAttribute="trailing" secondItem="ttP-iY-3wF" secondAttribute="trailing" constant="10" id="beM-Bc-q9E"/>
-                                            <constraint firstAttribute="bottom" secondItem="zvI-Wm-m2z" secondAttribute="bottom" constant="15" id="huC-nZ-zGr"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ter-5w-uS1" secondAttribute="trailing" constant="10" id="izG-33-JKc"/>
+                                            <constraint firstItem="zvI-Wm-m2z" firstAttribute="top" secondItem="ttP-iY-3wF" secondAttribute="bottom" constant="15" id="jrZ-OK-ZtQ"/>
                                             <constraint firstAttribute="trailing" secondItem="Co1-6C-cXA" secondAttribute="trailing" constant="10" id="wth-Qg-ref"/>
                                             <constraint firstItem="zvI-Wm-m2z" firstAttribute="leading" secondItem="8T0-OB-sW0" secondAttribute="leading" constant="10" id="yFo-cI-ZJc"/>
                                         </constraints>
@@ -1957,7 +1970,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1GM-Ps-NFE"/>
-        <segue reference="KXW-ne-19f"/>
+        <segue reference="t4d-mq-NdV"/>
         <segue reference="mh6-uv-Owm"/>
         <segue reference="WCa-xs-XDx"/>
         <segue reference="dbB-46-9dL"/>

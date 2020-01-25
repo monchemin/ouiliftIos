@@ -36,6 +36,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    struct RecoveryPassword: Codable {
+        var eMail: String
+        var language: String
+        
+        init (_ eMail: String) {
+            self.eMail = eMail
+            self.language = Locale.current.languageCode ?? "en"
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if #available(iOS 13.0, *) {
@@ -84,6 +94,44 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             
         }
+    }
+    
+    @IBAction func resetPwd(_ sender: Any) {
+        let alert = UIAlertController(title: "Oui Lift", message: "Inscrivez l'adresse EMail utilisée lors de la création de votre compte. Un mot de passe temporaire vous sera envoyé à cette adresse", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Email"
+        }
+        
+        let saveAction = UIAlertAction(title: "Ok", style: .default) { (action: UIAlertAction!) -> Void in
+            let recoveryPasswordApi = BaseAPI<RecoveryPassword>(endpoint: "recovery-password.php")
+            let recoveryPassword = RecoveryPassword((alert.textFields?[0].text)!)
+            recoveryPasswordApi.post(TRequest: recoveryPassword, completion: { (status) in
+            if (status == 200) {
+                DispatchQueue.main.async {
+                    self.showAlert(message: "Un mot de passe temporaire vous sera envoyé à votre adresse")
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.showAlert(message: "Une erreur est survenue. Veuillez réessayer")
+                }
+            }
+            });
+        }
+        
+        saveAction.isEnabled = false
+        NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object:alert.textFields?[0],
+            queue: OperationQueue.main) { (notification) -> Void in
+                do {
+                try(alert.textFields?[0].validatedText(FieldValidator.ValidatorType.email))!
+                    saveAction.isEnabled = true
+                } catch( _) {
+                    saveAction.isEnabled = false
+                }
+        }
+        
+        alert.addAction(saveAction)
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     func showAlert(message: String) {

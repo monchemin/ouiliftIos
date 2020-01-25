@@ -64,12 +64,13 @@
 		8E6DFC57233C332100A6BB8F /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		8E766F1A23BA62260048A8EE /* CustomerCarsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerCarsTableViewController.swift; sourceTree = "<group>"; };
 		8E836931239C2D86008FFDEB /* MyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
+		8E9B5D1123DCEA6E00C9880D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8E9B5D1223DCEB0700C9880D /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8EDA7A4523270353000E5B66 /* SearchRoutesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRoutesViewController.swift; sourceTree = "<group>"; };
 		8EDA7A47232D6735000E5B66 /* RouteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailViewController.swift; sourceTree = "<group>"; };
 		8EE8313A22DA55F800F4BC72 /* ouilift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ouilift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EE8313D22DA55F800F4BC72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EE8313F22DA55F800F4BC72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8EE8314222DA55F800F4BC72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8EE8314422DA55FB00F4BC72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8EE8314722DA55FB00F4BC72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8EE8314922DA55FB00F4BC72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,7 +82,6 @@
 		8EE8315F22DA55FC00F4BC72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EEC0DE1235BBF410053E897 /* CustomerRouteListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerRouteListTableViewController.swift; sourceTree = "<group>"; };
 		8EEC0DE3235BD0900053E897 /* ReservationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailViewController.swift; sourceTree = "<group>"; };
-		8EEC0DE5235FE5370053E897 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		8EEC0DE6235FE5370053E897 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		8EEC0DE72363F06D0053E897 /* SearchStationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStationTableViewController.swift; sourceTree = "<group>"; };
 		8EEC0DEB2364FB550053E897 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
@@ -371,8 +371,8 @@
 		8EE8314122DA55F800F4BC72 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8EE8314222DA55F800F4BC72 /* Base */,
-				8EEC0DE5235FE5370053E897 /* fr */,
+				8E9B5D1123DCEA6E00C9880D /* en */,
+				8E9B5D1223DCEB0700C9880D /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
