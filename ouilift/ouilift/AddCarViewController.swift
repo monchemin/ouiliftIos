@@ -47,10 +47,28 @@ class AddCarViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     struct CarColor: Codable {
         var Id: String
         var colorName: String
+        var colorLabel: String
         
-        init (_ Id: String, _ colorName: String) {
+        init (_ Id: String, _ colorName: String, _ colorLabel: String) {
             self.Id = Id
             self.colorName = colorName
+            self.colorLabel = colorLabel
+        }
+        
+        func getColorLabel () -> String {
+            
+            let colorLabel = self.colorLabel
+            let splitIndex = colorLabel.firstIndex(of: ",")
+
+            let enEndIndex = colorLabel.index(splitIndex!, offsetBy: -1)
+            let enBeginIndex = colorLabel.index(colorLabel.startIndex, offsetBy: 7)
+            let enLabel = colorLabel[enBeginIndex..<enEndIndex]
+
+            let frBeginIndex = colorLabel.index(splitIndex!, offsetBy: 7)
+            let frEndIndex = colorLabel.index(colorLabel.endIndex, offsetBy: -2)
+            let frLabel = colorLabel[frBeginIndex..<frEndIndex]
+            
+            return Locale.current.languageCode == "fr" ? String(frLabel) : String(enLabel)
         }
     }
     
@@ -176,7 +194,7 @@ class AddCarViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         if (pickerView.tag == 1) {
             return carBrandModels[row].model
         } else {
-            return carColors[row].colorName
+            return carColors[row].getColorLabel()
         }
     }
     
